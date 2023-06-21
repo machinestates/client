@@ -6,6 +6,7 @@ import { SignupRequestInterface } from '../types/auth/signup-request.interface';
 import { AuthResponseInterface } from '../types/auth/auth-response.interface';
 import { Observable, map } from 'rxjs';
 import { CurrentUserInterface } from '../types/auth/current-user.interface';
+import { SigninRequestInterface } from '../types/auth/signin-request.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  signin(data: SignupRequestInterface) {
+  signin(data: SigninRequestInterface) {
     const url = environment.apiUrl + '/users/me';
     return this.http.post<AuthResponseInterface>(url, data).pipe(
       map(response => response.user)

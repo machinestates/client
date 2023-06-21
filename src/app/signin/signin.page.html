@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Signup</ion-title>
+    <ion-title>Sign In</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,24 +11,14 @@
       <ion-row>
         <ion-col size="10" offset="1">
             <ion-input
-              formControlName="email"
-              label="Email"
+              formControlName="emailusername"
+              label="Email or Username"
               label-placement="floating"
-              type="email"
-              name="email"
+              type="text"
+              name="emailusername"
               autofocus="true"
-              error-text="Invalid email address."
-              required
-              email>
-            </ion-input>
-            <ion-input
-                formControlName="username"
-                label="Username"
-                label-placement="floating"
-                error-text="Invalid username. 2 characters minimum."
-                type="text"
-                name="username"
-                required>
+              error-text="Invalid email address or username."
+              required>
             </ion-input>
             <app-show-hide-password>
               <ion-input
@@ -37,7 +27,7 @@
                 type="password"
                 label="Password"
                 label-placement="floating"
-                error-text="Invalid password. 6 characters minimum."
+                error-text="Invalid password."
                 required
                 minlength="6">
               </ion-input>
@@ -46,8 +36,8 @@
       </ion-row>
       <ion-row>
         <ion-col size="10" offset="1">
-          <ion-button type="submit" expand="block" color="primary">Signup</ion-button>
-          <ion-button [routerLink]="['/signin']" type="button" fill="clear" expand="full">Have an account? Signin Now</ion-button>
+          <ion-button type="submit" expand="block" color="primary">Sign In</ion-button>
+          <ion-button [routerLink]="['/signup']" type="button" fill="clear" expand="full">No account? Signup Now</ion-button>
         </ion-col>
       </ion-row>
       <ion-row>

@@ -1,6 +1,9 @@
 export interface CurrentUserInterface {
-  id: number;
+  uuid: string;
   email: string;
   username: string;
+  avatar: string;
+  bio: string;
+  createdAt: string;
   token: string;
 }
