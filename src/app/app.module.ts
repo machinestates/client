@@ -6,13 +6,16 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
+import { MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthStoreModule } from './store/auth/auth-store.module';
 import { TradeStoreModule } from './store/trade/trade-store.module';
 import { AuthInterceptor } from './services/auth-interceptor.service';
+import { clearStateMetaReducer } from './store/meta/clear-state.reducer';
+
+const metaReducers: Array<MetaReducer<any, any>> = [clearStateMetaReducer];
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +23,7 @@ import { AuthInterceptor } from './services/auth-interceptor.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({}, { metaReducers }),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([]),
     HttpClientModule,
