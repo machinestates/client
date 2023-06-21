@@ -25,6 +25,11 @@ export class SignupPage implements OnInit {
     this.initializeValues();
   }
 
+  ionViewWillEnter() {
+
+    this.form.reset();
+  }
+
   initializeForm() {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],

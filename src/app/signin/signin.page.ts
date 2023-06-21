@@ -24,6 +24,10 @@ export class SigninPage implements OnInit {
     this.initializeValues();
   }
 
+  ionViewWillEnter() {
+    this.form.reset();
+  }
+
   initializeForm() {
     this.form = this.formBuilder.group({
       emailusername: ['', Validators.required],
@@ -38,7 +42,6 @@ export class SigninPage implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log(this.form.value);
       const request: SigninRequestInterface = {
         user: this.form.value
       }
