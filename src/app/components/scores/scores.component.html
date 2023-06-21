@@ -1,0 +1,30 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-segment value="today" [(ngModel)]="scoresType">
+        <ion-segment-button value="today" checked>
+          <ion-label>Today</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="alltime">
+          <ion-label>All-Time</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <div [ngSwitch]="scoresType">
+        <!-- Today -->
+        <ng-container *ngSwitchCase="'today'">
+          <ion-list *ngIf="scores$ | async as scores">
+            <app-score-item [score]="score" *ngFor="let score of scores.today"></app-score-item>
+          </ion-list>
+        </ng-container>
+
+        <!-- All-Time -->
+        <ng-container *ngSwitchCase="'alltime'">
+          <ion-list *ngIf="scores$ | async as scores">
+            <app-score-item [score]="score" *ngFor="let score of scores.alltime"></app-score-item>
+          </ion-list>
+        </ng-container>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TradePage } from './trade.page';
 
 import { TradePageRoutingModule } from './trade-routing.module';
-import { ScoreItemModule } from '../components/score-item/score-item.module';
+import { ScoresModule } from '../components/scores/scores.module';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { ScoreItemModule } from '../components/score-item/score-item.module';
     CommonModule,
     FormsModule,
     TradePageRoutingModule,
-    ScoreItemModule
+    ScoresModule
   ],
   declarations: [TradePage]
 })
