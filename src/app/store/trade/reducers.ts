@@ -7,7 +7,8 @@ const initialState: TradeStateInterface = {
   isSubmitting: false,
   isLoading: false,
   error: null,
-  scores: null
+  scores: null,
+  game: null
 }
 
 const tradeReducer = createReducer(
