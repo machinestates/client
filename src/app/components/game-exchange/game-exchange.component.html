@@ -1,0 +1,82 @@
+<div *ngIf="game$ | async as currentGame" style="margin-top: 12px;">
+  <!-- Table -->
+  <table class="table" id="table-exchange">
+    <thead>
+    <tr>
+      <th>NAME</th>
+      <th>PRICE</th>
+      <th>BUY</th>
+      <th>SELL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let coin of currentGame?.exchange.coins">
+      <td>
+        <a (click)="openCoinModal(coin)" style="cursor: pointer;" class="linkified">{{ coin.name.toUpperCase() }}</a>
+      </td>
+      <th>{{ coin.price }}</th>
+      <th>
+        <div class="input-group">
+          <form class="form-inline">
+            <div class="form-group col-xs-12" style="max-width: 60px;">
+              <input
+                type="number" pattern="\d*"
+                class="form-control"
+                placeholder="0"
+                min="0"
+                max="200"
+                (change)="alertBuyAmount(coin)"
+                [(ngModel)]="coin.buyQuantity"
+                [ngModelOptions]="{ standalone: true }">
+            </div>
+            <button
+              type="button"
+              class="btn btn-buy"
+              [disabled]="!getMaxBuyQuantity(coin.price)"
+              (click)="coin.buyQuantity = getMaxBuyQuantity(coin.price); alertBuyAmount(coin);">
+              Max
+            </button>
+            <button
+              (click)="buy(coin)"
+              type="button"
+              class="btn btn-buy"
+              [disabled]="coin.buyQuantity < 1 || !canBuy(coin.price, coin.buyQuantity) || actionPending">
+              Buy
+            </button>
+          </form>
+        </div>
+      </th>
+      <th>
+        <div class="input-group">
+          <form class="form-inline">
+            <div class="form-group col-xs-12" style="max-width: 60px;">
+              <input
+                type="number" pattern="\d*"
+                class="form-control"
+                placeholder="0"
+                min="0"
+                max="200"
+                [(ngModel)]="coin.sellQuantity"
+                [ngModelOptions]="{ standalone: true }">
+            </div>
+            <button
+              [disabled]="!getMaxSellQuantity(coin)"
+              (click)="coin.sellQuantity = getMaxSellQuantity(coin)"
+              type="button"
+              class="btn btn-sell">
+              Max
+            </button>
+            <button
+              (click)="sell(coin)"
+              [disabled]="coin.sellQuantity < 1 || !canSell(coin.name, coin.sellQuantity) || actionPending"
+              type="button"
+              class="btn btn-sell">
+              Sell
+            </button>
+          </form>
+        </div>
+      </th>
+    </tr>
+    </tbody>
+  </table>
+</div>

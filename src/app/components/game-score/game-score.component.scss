@@ -1,0 +1,43 @@
+.jumbotron {
+  color: #ebf1e2;
+  padding: 8.5px 13px 8.5px 14px;
+  margin: 8.5px 4px 8.5px 3px;
+  background-color: #897f77;
+  /**border: 2px solid #211a25;**/
+}
+.jumbotron h1,
+.jumbotron .h1 {
+  margin: 0;
+  color: inherit;
+}
+.jumbotron p {
+  margin-bottom: 0;
+}
+.jumbotron > hr {
+  border-top-color: transparent;
+}
+.jumbotron .container {
+  max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding: 8.5px 13px 8.5px 14px 0;
+  }
+  .container .jumbotron,
+  .container-fluid .jumbotron {
+    padding-left: 8.5px 13px 8.5px 14px;
+    padding-right: 8.5px 13px 8.5px 14px;
+  }
+  .jumbotron h1,
+  .jumbotron .h1 {
+    font-size: 18px;
+  }
+}
+
+.score-center {
+  background-size: cover !important;
+}
+
+.text-danger {
+  color: var(--ion-color-danger);
+}

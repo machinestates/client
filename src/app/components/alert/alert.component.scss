@@ -1,0 +1,53 @@
+#alertMessage {
+  padding: 10px;
+}
+
+.alert-success {
+  background-color: var(--ion-color-success);
+  border-color: var(--ion-color-success);
+  color: #fff;
+}
+.alert-success hr {
+  border-top-color: #31ccb7;
+}
+.alert-success .alert-link {
+  color: #29212d;
+}
+.alert-info {
+  background-color: #aa5500;
+  border-color: #aa5500;
+  color: #fefe54;
+}
+.alert-info hr {
+  border-top-color: #aa5500;
+}
+.alert-info .alert-link {
+  color: #fefe54;
+}
+.alert-warning {
+  background-color: #aa00aa;
+  border-color: #aa00aa;
+  color: #ff55ff;
+}
+.alert-warning hr {
+  border-top-color: #aa00aa;
+}
+.alert-warning .alert-link {
+  color: #ff55ff;
+}
+.alert-danger {
+  background-color: #000000;
+  border-color: #000000;
+  color: #ff5555;
+}
+.alert-danger hr {
+  border-top-color: #000000;
+}
+.alert-danger .alert-link {
+  color: #ff5555;
+}
+
+.alert-intro {
+  background-color: #82364e;
+  color: #fff;
+}

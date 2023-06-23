@@ -1,0 +1,26 @@
+<div *ngIf="game$ | async as currentGame" class="jumbotron ion-text-center score-center" [ngStyle]="{background: 'linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(' + currentGame?.exchange.image + ')'}">
+  <h1>
+    <span id="span-exchange-day" style="color: #FFF;">
+      DAY {{ currentGame?.day }}.
+      AT <a style="cursor: pointer;" (click)="openExchangeModal(currentGame?.exchange)">{{ currentGame?.exchange.name }}</a>.
+      <span [ngClass]="{ 'text-danger': currentGame?.lastDay === currentGame?.day }">{{ (currentGame?.lastDay - currentGame?.day) }} DAYS LEFT.</span>
+    </span>
+  </h1>
+  <div class="row" style="margin-top: 7px;">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="col-xs-6 col-sm-6" id="element-debt">
+            <span style="font-size: 23px;" class="text-danger">${{ currentGame?.inventory.debt }}</span>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="col-xs-6 col-sm-6" id="element-fiatcoin">
+            <span style="font-size: 23px;" class="text-success">${{ currentGame?.inventory.fiatcoin }}</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</div>

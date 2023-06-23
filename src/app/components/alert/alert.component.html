@@ -1,0 +1,8 @@
+<div
+  id="alertMessage"
+  [hidden]="!message"
+  [ngClass]="{ 'alert': message, 'alert-success': message && message.type === 'success', 'alert-danger': message && message.type === 'error', 'alert-intro': message && message.type === 'intro' }">
+  <div #wrapper>
+    <span class="typing"></span>
+  </div>
+</div>
