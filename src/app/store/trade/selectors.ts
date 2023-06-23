@@ -13,4 +13,12 @@ export const scoresSelector = createSelector(
   (tradeState: TradeStateInterface) => tradeState.scores
 );
 
+export const gameSelector = createSelector(
+  tradeFeatureSelector,
+  (tradeState: TradeStateInterface) => tradeState.game
+);
 
+export const inProgressSelector = createSelector(
+  tradeFeatureSelector,
+  (tradeState: TradeStateInterface) => tradeState.inProgress
+);
