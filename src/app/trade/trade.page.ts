@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from '../services/game.service';
+import { Store, select } from '@ngrx/store';
+import { startNewGameAction } from '../store/trade/actions/start-new-game.action';
+import { inProgressSelector } from '../store/trade/selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-trade',
@@ -7,8 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TradePage implements OnInit {
 
-  constructor() {}
+  inProgress$: Observable<boolean>;
+  completed$: Observable<boolean>;
 
-  ngOnInit() {}
+  constructor(private store: Store) {}
+
+  ngOnInit() {
+    this.initializeValues();
+  }
+
+  start() {
+    this.store.dispatch(startNewGameAction());
+  }
+
+  initializeValues() {
+    this.inProgress$ = this.store.pipe(select(inProgressSelector));
+  }
 
 }

@@ -3,6 +3,14 @@
 
 /** Ionic CSS Variables **/
 :root {
+  font-size: 0.7em;
+
+  @font-face {
+    font-family: 'Press Start 2P';
+    src: url("../assets/fonts/PressStart2P-Regular.ttf"); //change url accordingly
+  }
+  
+  --ion-font-family: 'Press Start 2P', sans-serif;
 
   ion-button, ion-segment-button {
     --border-radius: 0;

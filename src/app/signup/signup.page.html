@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Signup</ion-title>
+    <ion-title>Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h1 class="ion-text-center">Machinestates</h1>
+  <h2 class="ion-text-center">Machinestates</h2>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <ion-grid>
       <ion-row>
@@ -46,8 +46,8 @@
       </ion-row>
       <ion-row>
         <ion-col size="10" offset="1">
-          <ion-button type="submit" expand="block" color="primary">Signup</ion-button>
-          <ion-button [routerLink]="['/signin']" type="button" fill="clear" expand="full">Have an account? Signin Now</ion-button>
+          <ion-button type="submit" expand="block" color="primary">Sign Up</ion-button>
+          <ion-button class="signin-link" [routerLink]="['/signin']" type="button" fill="clear" expand="full">Have an account? Signin Now</ion-button>
         </ion-col>
       </ion-row>
       <ion-row>

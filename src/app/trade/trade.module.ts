@@ -6,6 +6,9 @@ import { TradePage } from './trade.page';
 
 import { TradePageRoutingModule } from './trade-routing.module';
 import { ScoresModule } from '../components/scores/scores.module';
+import { GameScoreModule } from '../components/game-score/game-score.component';
+import { GameExchangeModule } from '../components/game-exchange/game-exchange.module';
+import { AlertModule } from '../components/alert/alert.module';
 
 @NgModule({
   imports: [
@@ -13,7 +16,10 @@ import { ScoresModule } from '../components/scores/scores.module';
     CommonModule,
     FormsModule,
     TradePageRoutingModule,
-    ScoresModule
+    ScoresModule,
+    GameScoreModule,
+    GameExchangeModule,
+    AlertModule
   ],
   declarations: [TradePage]
 })

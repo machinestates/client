@@ -6,15 +6,24 @@
   </ion-toolbar>
 </ion-header>
 
+<app-alert class="sticky-top"></app-alert>
+
 <ion-content [fullscreen]="true" class="ion-padding">
-  <app-scores></app-scores>
+
+  <!-- High scores -->
+  <app-scores *ngIf="!(inProgress$ | async)"></app-scores>
+
+  <!-- Game Interface -->
+  <app-game-score *ngIf="inProgress$ | async"></app-game-score>
+  <app-game-exchange *ngIf="inProgress$ | async"></app-game-exchange>
+
 </ion-content>
 
-<ion-footer [translucent]="true">
+<ion-footer [translucent]="true" *ngIf="!(inProgress$ | async)">
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button expand="block">Start</ion-button>
+        <ion-button (click)="start()" expand="block">Start</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

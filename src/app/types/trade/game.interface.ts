@@ -4,7 +4,6 @@ import { GameItemInterface } from "./game-item.interface";
 
 export interface GameInterface {
   uuid?: string;
-  inProgress: boolean;
   createdAt: string;
   completed: boolean;
   day: number;

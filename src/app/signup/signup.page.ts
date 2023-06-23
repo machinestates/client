@@ -26,7 +26,6 @@ export class SignupPage implements OnInit {
   }
 
   ionViewWillEnter() {
-
     this.form.reset();
   }
 

@@ -1,7 +1,8 @@
 {
-  "name": "mobile",
+  "name": "Machinestates",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
