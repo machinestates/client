@@ -5,5 +5,9 @@ export enum ActionTypes {
 
   START_NEW_GAME = '[Trade] Start New Game',
   START_NEW_GAME_SUCCESS = '[Trade] Start New Game Success',
-  START_NEW_GAME_FAILURE = '[Trade] Start New Game Failure'
+  START_NEW_GAME_FAILURE = '[Trade] Start New Game Failure',
+
+  SELL_COIN = '[Trade] Sell Coin',
+  SELL_COIN_SUCCESS = '[Trade] Sell Coin Success',
+  SELL_COIN_FAILURE = '[Trade] Sell Coin Failure',
 }

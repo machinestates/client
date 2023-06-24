@@ -22,3 +22,8 @@ export const inProgressSelector = createSelector(
   tradeFeatureSelector,
   (tradeState: TradeStateInterface) => tradeState.inProgress
 );
+
+export const actionPendingSelector = createSelector(
+  tradeFeatureSelector,
+  (tradeState: TradeStateInterface) => tradeState.actionPending
+);

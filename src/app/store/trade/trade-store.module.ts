@@ -6,13 +6,14 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
 import { GetScoresEffect } from './effects/get-scores.effect';
 import { StartNewGameEffect } from './effects/start-new-game.effect';
+import { SellCoinEffect } from './effects/sell-coin-effect';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    EffectsModule.forFeature([GetScoresEffect, StartNewGameEffect]),
+    EffectsModule.forFeature([GetScoresEffect, StartNewGameEffect, SellCoinEffect]),
     StoreModule.forFeature('trade', reducers)
   ]
 })

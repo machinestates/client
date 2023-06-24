@@ -3,6 +3,7 @@ import { Action, createReducer, on } from "@ngrx/store";
 import { TradeStateInterface } from "src/app/types/trade/trade-state.interface";
 import { getScoresAction, getScoresSuccessAction, getScoresFailureAction } from "./actions/get-scores.action";
 import { startNewGameAction, startNewGameFailureAction, startNewGameSuccessAction } from "./actions/start-new-game.action";
+import { sellCoinAction, sellCoinFailureAction, sellCoinSuccessAction } from "./actions/sell-coin.action";
 
 const initialState: TradeStateInterface = {
   isSubmitting: false,
@@ -10,7 +11,8 @@ const initialState: TradeStateInterface = {
   isLoading: false,
   error: null,
   scores: null,
-  game: null
+  game: null,
+  actionPending: false
 }
 
 const tradeReducer = createReducer(
@@ -61,6 +63,33 @@ const tradeReducer = createReducer(
     (state, action): TradeStateInterface => ({
       ...state,
       isLoading: false,
+      error: action.error
+    })
+  ),
+  on(
+    sellCoinAction,
+    (state): TradeStateInterface => ({
+      ...state,
+      isLoading: true,
+      actionPending: true,
+      error: null
+    })
+  ),
+  on(
+    sellCoinSuccessAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      actionPending: false,
+      isLoading: false,
+      game: action.game
+    })
+  ),
+  on(
+    sellCoinFailureAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      isLoading: false,
+      actionPending: false,
       error: action.error
     })
   ),

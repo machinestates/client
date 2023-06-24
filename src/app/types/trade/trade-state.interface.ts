@@ -8,5 +8,6 @@ export interface TradeStateInterface {
   scores: ScoresInterface | null;
   error: TradeErrorInterface | null;
   isLoading: boolean;
+  actionPending: boolean;
   game: GameInterface | null;
 }

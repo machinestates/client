@@ -1,5 +1,5 @@
 import { GameInterface } from "./game.interface";
 
-export interface NewGameResponseInterface {
+export interface GameResponseInterface {
     game: GameInterface;
 }

@@ -15,7 +15,7 @@
 
   <!-- Game Interface -->
   <app-game-score *ngIf="inProgress$ | async"></app-game-score>
-  <app-game-exchange *ngIf="inProgress$ | async"></app-game-exchange>
+  <app-game-exchange [currentGame]="game$ | async" *ngIf="inProgress$ | async"></app-game-exchange>
 
 </ion-content>
 
