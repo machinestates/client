@@ -17,5 +17,9 @@ export enum ActionTypes {
 
   TRAVEL = '[Trade] Travel',
   TRAVEL_SUCCESS = '[Trade] Travel Success',
-  TRAVEL_FAILURE = '[Trade] Travel Failure'
+  TRAVEL_FAILURE = '[Trade] Travel Failure',
+
+  PAY_DEBT = '[Trade] Pay Debt',
+  PAY_DEBT_SUCCESS = '[Trade] Pay Debt Success',
+  PAY_DEBT_FAILURE = '[Trade] Pay Debt Failure',
 }

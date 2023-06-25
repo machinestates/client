@@ -19,6 +19,17 @@ export class GameService {
     )
   }
 
+  payDebt(uuid: string, amount: number) {
+    const body = {
+      action: 'pay',
+      amount
+    }
+    const url = environment.apiUrl + '/trade/' + uuid;
+    return this.http.put<GameResponseInterface>(url, body).pipe(
+      map(response => response.game)
+    )
+  }
+
   travel(uuid: string, exchange: GameExchangeInterface) {
     const body = {
       action: 'travel',

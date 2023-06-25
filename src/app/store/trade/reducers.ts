@@ -5,6 +5,8 @@ import { getScoresAction, getScoresSuccessAction, getScoresFailureAction } from 
 import { startNewGameAction, startNewGameFailureAction, startNewGameSuccessAction } from "./actions/start-new-game.action";
 import { sellCoinAction, sellCoinFailureAction, sellCoinSuccessAction } from "./actions/sell-coin.action";
 import { travelAction, travelFailureAction, travelSuccessAction } from "./actions/travel.action";
+import { payDebtAction, payDebtFailureAction, payDebtSuccessAction } from "./actions/pay-debt.action";
+import { buyCoinAction, buyCoinFailureAction, buyCoinSuccessAction } from "./actions/buy-coin.action";
 
 const initialState: TradeStateInterface = {
   isSubmitting: false,
@@ -95,6 +97,33 @@ const tradeReducer = createReducer(
     })
   ),
   on(
+    buyCoinAction,
+    (state): TradeStateInterface => ({
+      ...state,
+      isLoading: true,
+      actionPending: true,
+      error: null
+    })
+  ),
+  on(
+    buyCoinSuccessAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      actionPending: false,
+      isLoading: false,
+      game: action.game
+    })
+  ),
+  on(
+    buyCoinFailureAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      isLoading: false,
+      actionPending: false,
+      error: action.error
+    })
+  ),
+  on(
     travelAction,
     (state): TradeStateInterface => ({
       ...state,
@@ -114,6 +143,33 @@ const tradeReducer = createReducer(
   ),
   on(
     travelFailureAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      isLoading: false,
+      actionPending: false,
+      error: action.error
+    })
+  ),
+  on(
+    payDebtAction,
+    (state): TradeStateInterface => ({
+      ...state,
+      isLoading: true,
+      actionPending: true,
+      error: null
+    })
+  ),
+  on(
+    payDebtSuccessAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      actionPending: false,
+      isLoading: false,
+      game: action.game
+    })
+  ),
+  on(
+    payDebtFailureAction,
     (state, action): TradeStateInterface => ({
       ...state,
       isLoading: false,

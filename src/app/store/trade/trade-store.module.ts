@@ -9,6 +9,7 @@ import { StartNewGameEffect } from './effects/start-new-game.effect';
 import { SellCoinEffect } from './effects/sell-coin-effect';
 import { BuyCoinEffect } from './effects/buy-coin.effect';
 import { TravelEffect } from './effects/travel.effect';
+import { PayDebtEffect } from './effects/pay-debt.effect';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TravelEffect } from './effects/travel.effect';
       StartNewGameEffect, 
       SellCoinEffect, 
       BuyCoinEffect, 
-      TravelEffect
+      TravelEffect,
+      PayDebtEffect
     ]),
     StoreModule.forFeature('trade', reducers)
   ]

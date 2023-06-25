@@ -1,0 +1,71 @@
+<div class="ion-padding">
+  <h5>PLASMADEBT</h5>
+  <!-- Table -->
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Pay Debt</th>
+      <th>Borrow</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th>
+        <div class="input-group">
+          <form class="form-inline">
+            <input
+              type="number" pattern="\d*"
+              min="0"
+              class="form-control"
+              placeholder="0"
+              [(ngModel)]="payQuantity"
+              [ngModelOptions]="{standalone: true}">
+            <button
+              type="button"
+              class="btn btn-buy"
+              [disabled]="getMaxPayment() === 0"
+              (click)="payQuantity = getMaxPayment()">
+              Max
+            </button>
+            <button
+              (click)="pay()"
+              type="button"
+              class="btn btn-buy"
+              [disabled]="payQuantity < 1 || payQuantity > getMaxPayment() || actionPending">
+              Pay
+            </button>
+          </form>
+        </div>
+      </th>
+      <th>
+        <div class="input-group">
+          <form class="form-inline">
+            <input
+              type="number" pattern="\d*"
+              min="0"
+              class="form-control"
+              placeholder="0"
+              [(ngModel)]="borrowQuantity"
+              [ngModelOptions]="{standalone: true}">
+            <button
+              [disabled]="getMaxBorrow() <= 0"
+              (click)="borrowQuantity = getMaxBorrow()"
+              type="button"
+              class="btn btn-sell">
+              Max
+            </button>
+            <button
+              style="font-size: 0.8em;"
+              (click)="borrow()"
+              [disabled]="borrowQuantity < 1 || borrowQuantity > getMaxBorrow() || actionPending || getDebt() > 20000"
+              type="button"
+              class="btn btn-sell">
+              Borrow
+            </button>
+          </form>
+        </div>
+      </th>
+    </tr>
+    </tbody>
+  </table>
+</div>

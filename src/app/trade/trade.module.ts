@@ -10,6 +10,7 @@ import { GameScoreModule } from '../components/game-score/game-score.module';
 import { GameExchangeModule } from '../components/game-exchange/game-exchange.module';
 import { AlertModule } from '../components/alert/alert.module';
 import { GameActionsModule } from '../components/game-actions/game-actions.module';
+import { GameDebtModule } from '../components/game-debt/game-debt.module';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { GameActionsModule } from '../components/game-actions/game-actions.modul
     GameScoreModule,
     GameExchangeModule,
     AlertModule,
-    GameActionsModule
+    GameActionsModule,
+    GameDebtModule
   ],
   declarations: [TradePage]
 })
