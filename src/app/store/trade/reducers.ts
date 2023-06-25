@@ -4,6 +4,7 @@ import { TradeStateInterface } from "src/app/types/trade/trade-state.interface";
 import { getScoresAction, getScoresSuccessAction, getScoresFailureAction } from "./actions/get-scores.action";
 import { startNewGameAction, startNewGameFailureAction, startNewGameSuccessAction } from "./actions/start-new-game.action";
 import { sellCoinAction, sellCoinFailureAction, sellCoinSuccessAction } from "./actions/sell-coin.action";
+import { travelAction, travelFailureAction, travelSuccessAction } from "./actions/travel.action";
 
 const initialState: TradeStateInterface = {
   isSubmitting: false,
@@ -86,6 +87,33 @@ const tradeReducer = createReducer(
   ),
   on(
     sellCoinFailureAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      isLoading: false,
+      actionPending: false,
+      error: action.error
+    })
+  ),
+  on(
+    travelAction,
+    (state): TradeStateInterface => ({
+      ...state,
+      isLoading: true,
+      actionPending: true,
+      error: null
+    })
+  ),
+  on(
+    travelSuccessAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      actionPending: false,
+      isLoading: false,
+      game: action.game
+    })
+  ),
+  on(
+    travelFailureAction,
     (state, action): TradeStateInterface => ({
       ...state,
       isLoading: false,

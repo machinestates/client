@@ -16,9 +16,9 @@
 
   <!-- Game Interface -->
   <ng-container *ngIf="inProgress$ | async">
-    <app-game-score></app-game-score>
+    <app-game-score [currentGame]="game$ | async"></app-game-score>
     <app-game-actions [currentGame]="game$ | async"></app-game-actions>
-    <app-game-exchange [currentGame]="game$ | async" *ngIf="inProgress$ | async"></app-game-exchange>
+    <app-game-exchange [currentGame]="game$ | async"></app-game-exchange>
   </ng-container>
   <!-- END: Game Interface -->
 

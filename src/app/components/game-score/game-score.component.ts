@@ -1,14 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { GameScoreComponent } from './game-score.component.module';
+import { Component, Input, OnInit } from "@angular/core";
+import { GameInterface } from "src/app/types/trade/game.interface";
 
-@NgModule({
-  declarations: [GameScoreComponent],
-  imports: [
-    CommonModule,
-    IonicModule
-  ],
-  exports: [GameScoreComponent]
+
+@Component({
+  selector: 'app-game-score',
+  templateUrl: './game-score.component.html',
+  styleUrls: ['./game-score.component.scss']
 })
-export class GameScoreModule { }
+export class GameScoreComponent implements OnInit {
+  constructor() {}
+
+  @Input() currentGame: GameInterface;
+
+  ngOnInit(): void {
+  }
+
+  openExchangeModal(exchange) {
+    console.log(exchange);
+  }
+}

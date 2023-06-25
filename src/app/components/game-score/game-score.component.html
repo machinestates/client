@@ -1,4 +1,4 @@
-<div *ngIf="game$ | async as currentGame" class="jumbotron ion-text-center score-center" [ngStyle]="{background: 'linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(' + currentGame?.exchange.image + ')'}">
+<div class="jumbotron ion-text-center score-center" [ngStyle]="{background: 'linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(' + currentGame?.exchange.image + ')'}">
   <h3>
     <span id="span-exchange-day" style="color: #FFF;">
       DAY {{ currentGame?.day }}.<br />

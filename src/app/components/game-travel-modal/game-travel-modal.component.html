@@ -1,0 +1,23 @@
+<div class="ion-page">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Travel</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen>
+    <ion-card *ngFor="let exchange of exchanges">
+      <div *ngIf="exchange.name !== currentExchange">
+        <ion-card-header>
+          <ion-card-subtitle *ngIf="exchange.name === 'PLASMANET'">Debt Service</ion-card-subtitle>
+          <ion-card-title (click)="travelToExchange(exchange)">{{ exchange.name }}</ion-card-title>
+        </ion-card-header>
+      </div>
+      </ion-card>
+
+  </ion-content>
+
+  <ion-footer>
+    <ion-button expand="full" (click)="close()">Close</ion-button>
+  </ion-footer>
+</div>

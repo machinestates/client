@@ -12,11 +12,11 @@ export const buyCoinAction = createAction(
 );
 
 export const buyCoinSuccessAction = createAction(
-  ActionTypes.SELL_COIN_SUCCESS,
+  ActionTypes.BUY_COIN_SUCCESS,
   props<{ game: GameInterface }>()
 );
 
 export const buyCoinFailureAction = createAction(
-  ActionTypes.SELL_COIN_FAILURE,
+  ActionTypes.BUY_COIN_FAILURE,
   props<{error: TradeErrorInterface }>()
 );
