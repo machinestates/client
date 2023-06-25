@@ -7,6 +7,7 @@ import { GameInterface } from "src/app/types/trade/game.interface";
 import * as _ from 'lodash';
 import { AlertService } from "src/app/services/alert.service";
 import { sellCoinAction } from "src/app/store/trade/actions/sell-coin.action";
+import { buyCoinAction } from "src/app/store/trade/actions/buy-coin.action";
 
 @Component({
   selector: 'app-game-exchange',
@@ -26,7 +27,6 @@ export class GameExchangeComponent implements OnChanges, OnInit {
 
   ngOnChanges() {
     this.coins = _.cloneDeep(this.currentGame.exchange.coins);
-    console.log('coins', this.coins);
   }
 
   openCoinModal(coin) {
@@ -56,19 +56,21 @@ export class GameExchangeComponent implements OnChanges, OnInit {
   getRemainingCoinsCapacity(): number {
     let available = this.currentGame.inventory.coinsCapacity;
 
-    _.each(this.coins, (coin) => {
+    _.each(this.currentGame.inventory.coins, (coin) => {
       available -= coin.amount;
     });
     return available;
   }
 
-  buy(coin) {}
+  buy(coin) {
+    const uuid = this.currentGame.uuid;
+    this.store.dispatch(buyCoinAction({ uuid, coin }));
+  }
 
   canBuy(price, quantity): boolean {
     const fiatcoin = _.get(this.currentGame, 'inventory.fiatcoin') || 0;
     return (this.getRemainingCoinsCapacity() >= quantity) && (fiatcoin >= (price * quantity));
   }
-
 
   sell(coin) {
     const uuid = this.currentGame.uuid;

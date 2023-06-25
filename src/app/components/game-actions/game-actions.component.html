@@ -1,0 +1,15 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-button color="primary" expand="full" (click)="endRound()" *ngIf="currentGame?.lastDay === currentGame?.day">
+        END ROUND
+      </ion-button>
+      <ion-button color="primary" expand="full" (click)="openTravelModal()" *ngIf="currentGame?.lastDay !== currentGame?.day ">
+        TRAVEL TO EXCHANGE
+      </ion-button>
+      <ion-button color="secondary" expand="full" (click)="openInventoryModal()">
+        VIEW INVENTORY
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

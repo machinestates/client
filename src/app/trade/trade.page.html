@@ -12,10 +12,15 @@
 
   <!-- High scores -->
   <app-scores *ngIf="!(inProgress$ | async)"></app-scores>
+  <!-- END: High Scores -->
 
   <!-- Game Interface -->
-  <app-game-score *ngIf="inProgress$ | async"></app-game-score>
-  <app-game-exchange [currentGame]="game$ | async" *ngIf="inProgress$ | async"></app-game-exchange>
+  <ng-container *ngIf="inProgress$ | async">
+    <app-game-score></app-game-score>
+    <app-game-actions [currentGame]="game$ | async"></app-game-actions>
+    <app-game-exchange [currentGame]="game$ | async" *ngIf="inProgress$ | async"></app-game-exchange>
+  </ng-container>
+  <!-- END: Game Interface -->
 
 </ion-content>
 

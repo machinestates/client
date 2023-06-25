@@ -10,4 +10,8 @@ export enum ActionTypes {
   SELL_COIN = '[Trade] Sell Coin',
   SELL_COIN_SUCCESS = '[Trade] Sell Coin Success',
   SELL_COIN_FAILURE = '[Trade] Sell Coin Failure',
+
+  BUY_COIN = '[Trade] Buy Coin',
+  BUY_COIN_SUCCESS = '[Trade] Buy Coin Success',
+  BUY_COIN_FAILURE = '[Trade] Buy Coin Failure'
 }

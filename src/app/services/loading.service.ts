@@ -17,7 +17,6 @@ export class LoadingService {
   }
 
   async dismiss() {
-    console.log('Is this working?', this.loading);
     await this.loading.dismiss();
   }
 }

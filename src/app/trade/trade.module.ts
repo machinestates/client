@@ -9,6 +9,7 @@ import { ScoresModule } from '../components/scores/scores.module';
 import { GameScoreModule } from '../components/game-score/game-score.component';
 import { GameExchangeModule } from '../components/game-exchange/game-exchange.module';
 import { AlertModule } from '../components/alert/alert.module';
+import { GameActionsModule } from '../components/game-actions/game-actions.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { AlertModule } from '../components/alert/alert.module';
     ScoresModule,
     GameScoreModule,
     GameExchangeModule,
-    AlertModule
+    AlertModule,
+    GameActionsModule
   ],
   declarations: [TradePage]
 })
