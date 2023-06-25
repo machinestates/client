@@ -7,6 +7,8 @@ import { sellCoinAction, sellCoinFailureAction, sellCoinSuccessAction } from "./
 import { travelAction, travelFailureAction, travelSuccessAction } from "./actions/travel.action";
 import { payDebtAction, payDebtFailureAction, payDebtSuccessAction } from "./actions/pay-debt.action";
 import { buyCoinAction, buyCoinFailureAction, buyCoinSuccessAction } from "./actions/buy-coin.action";
+import { borrowAction, borrowFailureAction, borrowSuccessAction } from "./actions/borrow.action";
+import { completeGameAction, completeGameFailureAction, completeGameSuccessAction } from "./actions/complete-game.action";
 
 const initialState: TradeStateInterface = {
   isSubmitting: false,
@@ -177,6 +179,61 @@ const tradeReducer = createReducer(
       error: action.error
     })
   ),
+  on(
+    borrowAction,
+    (state): TradeStateInterface => ({
+      ...state,
+      isLoading: true,
+      actionPending: true,
+      error: null
+    })
+  ),
+  on(
+    borrowSuccessAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      actionPending: false,
+      isLoading: false,
+      game: action.game
+    })
+  ),
+  on(
+    borrowFailureAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      isLoading: false,
+      actionPending: false,
+      error: action.error
+    })
+  ),
+  on(
+    completeGameAction,
+    (state): TradeStateInterface => ({
+      ...state,
+      isLoading: true,
+      actionPending: true,
+      error: null
+    })
+  ),
+  on(
+    completeGameSuccessAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      actionPending: false,
+      isLoading: false,
+      inProgress: false,
+      game: action.game
+    })
+  ),
+  on(
+    completeGameFailureAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      isLoading: false,
+      actionPending: false,
+      error: action.error
+    })
+  )
 );
 
 export function reducers(state: TradeStateInterface, action: Action) {

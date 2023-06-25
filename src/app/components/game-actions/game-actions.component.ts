@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { GameInterface } from 'src/app/types/trade/game.interface';
 import { GameTravelModalComponent } from '../game-travel-modal/game-travel-modal.component';
+import { Store } from '@ngrx/store';
+import { travelAction } from 'src/app/store/trade/actions/travel.action';
+import { completeGameAction } from 'src/app/store/trade/actions/complete-game.action';
 
 @Component({
   selector: 'app-game-actions',
@@ -12,11 +15,13 @@ export class GameActionsComponent implements OnInit {
 
   @Input() currentGame: GameInterface;
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private store: Store) { }
 
   ngOnInit() {}
 
-  endRound() {}
+  endRound() {
+    this.store.dispatch(completeGameAction({ uuid: this.currentGame.uuid }));
+  }
 
   async openTravelModal() {
     const modal = await this.modalController.create({

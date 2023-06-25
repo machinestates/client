@@ -6,6 +6,7 @@ export interface GameInterface {
   uuid?: string;
   createdAt: string;
   completed: boolean;
+  score?: number;
   day: number;
   lastDay: number;
   exchange: GameExchangeInterface

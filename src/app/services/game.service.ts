@@ -19,6 +19,27 @@ export class GameService {
     )
   }
 
+  completeGame(uuid: string) {
+    const body = {
+      action: 'complete'
+    };
+    const url = environment.apiUrl + '/trade/' + uuid;
+    return this.http.put<GameResponseInterface>(url, body).pipe(
+      map(response => response.game)
+    )
+  }
+
+  borrow(uuid: string, amount: number) {
+    const body = {
+      action: 'borrow',
+      amount
+    }
+    const url = environment.apiUrl + '/trade/' + uuid;
+    return this.http.put<GameResponseInterface>(url, body).pipe(
+      map(response => response.game)
+    )
+  }
+
   payDebt(uuid: string, amount: number) {
     const body = {
       action: 'pay',

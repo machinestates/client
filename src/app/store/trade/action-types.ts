@@ -22,4 +22,12 @@ export enum ActionTypes {
   PAY_DEBT = '[Trade] Pay Debt',
   PAY_DEBT_SUCCESS = '[Trade] Pay Debt Success',
   PAY_DEBT_FAILURE = '[Trade] Pay Debt Failure',
+
+  BORROW = '[Trade] Borrow',
+  BORROW_SUCCESS = '[Trade] Borrow Success',
+  BORROW_FAILURE = '[Trade] Borrow Failure',
+
+  COMPLETE_GAME = '[Trade] Complete Game',
+  COMPLETE_GAME_SUCCESS = '[Trade] Complete Game Success',
+  COMPLETE_GAME_FAILURE = '[Trade] Complete Game Failure'
 }

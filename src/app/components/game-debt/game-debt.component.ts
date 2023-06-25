@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as _ from 'lodash';
+import { borrowAction } from 'src/app/store/trade/actions/borrow.action';
 import { payDebtAction } from 'src/app/store/trade/actions/pay-debt.action';
 import { GameInterface } from 'src/app/types/trade/game.interface';
 
@@ -10,7 +11,7 @@ import { GameInterface } from 'src/app/types/trade/game.interface';
   templateUrl: './game-debt.component.html',
   styleUrls: ['./game-debt.component.scss'],
 })
-export class GameDebtComponent  implements OnInit {
+export class GameDebtComponent implements OnInit {
 
   public payQuantity = 0;
   public borrowQuantity = 0;
@@ -44,11 +45,16 @@ export class GameDebtComponent  implements OnInit {
     return Math.min(fiatcoin, debt);
   }
 
-  borrow() {}
+  borrow() {
+    const uuid = this.currentGame.uuid;
+    this.store.dispatch(borrowAction({ uuid, amount: this.borrowQuantity }));
+    this.borrowQuantity = 0;
+  }
 
   pay() {
     const uuid = this.currentGame.uuid;
     this.store.dispatch(payDebtAction({ uuid, amount: this.payQuantity }));
+    this.payQuantity = 0;
   }
 
 }
