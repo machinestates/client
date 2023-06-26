@@ -5,6 +5,7 @@ import { startNewGameAction } from '../store/trade/actions/start-new-game.action
 import { gameSelector, inProgressSelector } from '../store/trade/selectors';
 import { Observable } from 'rxjs';
 import { GameInterface } from '../types/trade/game.interface';
+import { SmartAudioService } from '../services/smart-audio.service';
 
 @Component({
   selector: 'app-trade',
@@ -17,7 +18,7 @@ export class TradePage implements OnInit {
   inProgress$: Observable<boolean>;
   completed$: Observable<boolean>;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private smartAudioService: SmartAudioService) {}
 
   ngOnInit() {
     this.initializeValues();
@@ -30,6 +31,14 @@ export class TradePage implements OnInit {
   initializeValues() {
     this.game$ = this.store.pipe(select(gameSelector));
     this.inProgress$ = this.store.pipe(select(inProgressSelector));
+
+    this.smartAudioService.preload('start', 'assets/sounds/start.wav');
+    this.smartAudioService.preload('hacked', 'assets/sounds/danger.wav');
+    this.smartAudioService.preload('sell', 'assets/sounds/positive.wav');
+    this.smartAudioService.preload('buy', 'assets/sounds/alert.wav');
+    this.smartAudioService.preload('travel', 'assets/sounds/footsteps.mp3');
+    this.smartAudioService.preload('borrow', 'assets/sounds/debt-alert.mp3');
+    this.smartAudioService.preload('end', 'assets/sounds/end.wav');
   }
 
 }

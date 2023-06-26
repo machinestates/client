@@ -10,6 +10,7 @@ import { GameInterface } from "src/app/types/trade/game.interface";
 import { AlertService } from "src/app/services/alert.service";
 import { LoadingService } from "src/app/services/loading.service";
 import { buyCoinAction, buyCoinFailureAction, buyCoinSuccessAction } from "../actions/buy-coin.action";
+import { SmartAudioService } from "src/app/services/smart-audio.service";
 
 
 @Injectable()
@@ -27,6 +28,7 @@ export class BuyCoinEffect {
             return buyCoinSuccessAction({ game })
           }),
           tap((state) => {
+            this.smartAudioService.play('buy');
             this.alertService.success([
               `You have successfully bought ${coin.buyQuantity} ${coin.name} for a total of $${coin.buyQuantity * coin.price}.`,
               `Your FIATCOIN balance is now $${state.game.inventory.fiatcoin}.`
@@ -48,6 +50,7 @@ export class BuyCoinEffect {
     private actions$: Actions,
     private gameService: GameService,
     private alertService: AlertService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private smartAudioService: SmartAudioService
   ) {}
 }

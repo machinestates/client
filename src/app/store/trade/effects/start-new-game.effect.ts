@@ -9,6 +9,7 @@ import { GameService } from "src/app/services/game.service";
 import { startNewGameAction, startNewGameFailureAction, startNewGameSuccessAction } from "../actions/start-new-game.action";
 import { GameInterface } from "src/app/types/trade/game.interface";
 import { GameAlertService } from "src/app/services/game-alert.service";
+import { SmartAudioService } from "src/app/services/smart-audio.service";
 
 
 @Injectable()
@@ -19,6 +20,7 @@ export class StartNewGameEffect {
       switchMap(() => {
         return this.gameService.start().pipe(
           map((game: GameInterface) => {
+            this.smartAudioService.play('start');
             return startNewGameSuccessAction({ game })
           }),
           tap((state) => {
@@ -35,6 +37,7 @@ export class StartNewGameEffect {
   constructor(
     private actions$: Actions,
     private gameService: GameService,
-    private gameAlertService: GameAlertService
+    private gameAlertService: GameAlertService,
+    private smartAudioService: SmartAudioService
   ) {}
 }

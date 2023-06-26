@@ -10,6 +10,7 @@ import { GameInterface } from "src/app/types/trade/game.interface";
 import { AlertService } from "src/app/services/alert.service";
 import { LoadingService } from "src/app/services/loading.service";
 import { borrowAction, borrowFailureAction, borrowSuccessAction } from "../actions/borrow.action";
+import { SmartAudioService } from "src/app/services/smart-audio.service";
 
 
 @Injectable()
@@ -24,6 +25,7 @@ export class BorrowEffect {
       switchMap(({ uuid, amount }) => {
         return this.gameService.borrow(uuid, amount).pipe(
           map((game: GameInterface) => {
+            this.smartAudioService.play('borrow');
             return borrowSuccessAction({ game })
           }),
           tap((state) => {
@@ -48,6 +50,7 @@ export class BorrowEffect {
     private actions$: Actions,
     private gameService: GameService,
     private alertService: AlertService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private smartAudioService: SmartAudioService
   ) {}
 }

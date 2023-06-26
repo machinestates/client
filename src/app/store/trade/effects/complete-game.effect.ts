@@ -9,8 +9,9 @@ import { GameService } from "src/app/services/game.service";
 import { GameInterface } from "src/app/types/trade/game.interface";
 import { AlertService } from "src/app/services/alert.service";
 import { LoadingService } from "src/app/services/loading.service";
-import { borrowAction, borrowFailureAction, borrowSuccessAction } from "../actions/borrow.action";
 import { completeGameAction, completeGameFailureAction, completeGameSuccessAction } from "../actions/complete-game.action";
+import { SmartAudioService } from "src/app/services/smart-audio.service";
+import { Vibration } from "@awesome-cordova-plugins/vibration/ngx";
 
 
 @Injectable()
@@ -28,6 +29,8 @@ export class CompleteGameEffect {
             return completeGameSuccessAction({ game })
           }),
           tap((state) => {
+            new Vibration().vibrate(3000);
+            this.smartAudioService.play('end');
             this.alertService.success([
               `This round of the TRADING SIMULATION is complete.`,
               `Your final FIATCOIN score for the round is $${state.game.score}.`
@@ -49,6 +52,7 @@ export class CompleteGameEffect {
     private actions$: Actions,
     private gameService: GameService,
     private alertService: AlertService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private smartAudioService: SmartAudioService
   ) {}
 }

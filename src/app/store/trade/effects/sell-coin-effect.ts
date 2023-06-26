@@ -10,6 +10,7 @@ import { GameInterface } from "src/app/types/trade/game.interface";
 import { sellCoinAction, sellCoinFailureAction, sellCoinSuccessAction } from "../actions/sell-coin.action";
 import { AlertService } from "src/app/services/alert.service";
 import { LoadingService } from "src/app/services/loading.service";
+import { SmartAudioService } from "src/app/services/smart-audio.service";
 
 
 @Injectable()
@@ -27,6 +28,7 @@ export class SellCoinEffect {
             return sellCoinSuccessAction({ game })
           }),
           tap((state) => {
+            this.smartAudioService.play('sell');
             this.alertService.success([
               `You have successfully sold ${coin.sellQuantity} ${coin.name} for a total of $${coin.sellQuantity * coin.price}.`,
               `Your FIATCOIN balance is now $${state.game.inventory.fiatcoin}.`
@@ -48,6 +50,7 @@ export class SellCoinEffect {
     private actions$: Actions,
     private gameService: GameService,
     private alertService: AlertService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private smartAudioService: SmartAudioService
   ) {}
 }

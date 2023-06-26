@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AlertService } from './alert.service';
 import { Vibration } from '@awesome-cordova-plugins/vibration/ngx';
-
 import * as _ from 'lodash';
+
+import { AlertService } from './alert.service';
+import { SmartAudioService } from './smart-audio.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,9 @@ export class GameAlertService {
 
   vibration = new Vibration();
 
-  constructor(private alertService: AlertService) { }
+  constructor(private alertService: AlertService, private smartAudioService: SmartAudioService) { }
 
   public generateDanger(exchange) {
-    this.vibration.vibrate(3000);
     return `Oh no...^3000 You have been HACKED...^2000 by an unknown assailant.` +
     `^2000 $${exchange.lossFromDanger} has been taken!`;
 
@@ -28,6 +28,10 @@ export class GameAlertService {
     // Has danger:
     if (_.get(currentGame, 'exchange.hasDanger') && _.get(currentGame, 'exchange.lossFromDanger') > 0) {
       messages.unshift(this.generateDanger(exchange));
+      
+      this.vibration.vibrate(3000);
+      this.smartAudioService.play('hacked');
+      
       this.alertService.error(messages, 55);
     } else {
       this.alertService.success(messages, 55);
