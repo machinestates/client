@@ -45,12 +45,13 @@ fieldset[disabled] .btn {
 
 .form-control {
   width: 100px;
-
 }
 
 input {
   -webkit-appearance: none !important;
   -webkit-border-radius: 0;
+  appearance: none !important;
+  border-radius: 0;
 }
 
 .table {

@@ -12,6 +12,11 @@
     font-family: 'Press Start 2P';
     src: url("../assets/fonts/PressStart2P-Regular.ttf"); //change url accordingly
   }
+
+  @font-face {
+    font-family: 'CairoPlay';
+    src: url("../assets/fonts/CairoPlay-VariableFont_slnt,wght.ttf");
+  }
   
   --ion-font-family: 'Press Start 2P', sans-serif;
 
