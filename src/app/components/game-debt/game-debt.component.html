@@ -1,5 +1,4 @@
 <div class="ion-padding">
-  <h5>PLASMADEBT</h5>
   <!-- Table -->
   <table class="table">
     <thead>
@@ -11,7 +10,13 @@
     <tbody>
     <tr>
       <th>
-        <div class="input-group">
+        <button *ngIf="!activePay"
+          type="button"
+          class="btn btn-buy"
+          (click)="activePay = true">
+            Pay
+          </button>
+        <div class="input-group" *ngIf="activePay">
           <form class="form-inline">
             <input
               type="number" pattern="\d*"
@@ -38,7 +43,13 @@
         </div>
       </th>
       <th>
-        <div class="input-group">
+        <button *ngIf="!activeBorrow"
+          type="button"
+          class="btn btn-sell"
+          (click)="activeBorrow = true">
+            Borrow
+          </button>
+        <div class="input-group" *ngIf="activeBorrow">
           <form class="form-inline">
             <input
               type="number" pattern="\d*"
@@ -55,7 +66,6 @@
               Max
             </button>
             <button
-              style="font-size: 0.8em;"
               (click)="borrow()"
               [disabled]="borrowQuantity < 1 || borrowQuantity > getMaxBorrow() || actionPending || getDebt() > 20000"
               type="button"

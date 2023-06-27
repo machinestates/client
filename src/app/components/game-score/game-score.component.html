@@ -1,4 +1,29 @@
-<div class="jumbotron ion-text-center score-center" [ngStyle]="{background: 'linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(' + currentGame?.exchange.image + ')'}">
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      DAY {{ currentGame?.day }}
+    </ion-col>
+    <ion-col>
+      {{ currentGame?.lastDay - currentGame?.day }} DAYS LEFT
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <div class="col-xs-6 col-sm-6" id="element-debt">
+        <span style="font-size: 1.5em;" class="text-danger">${{ currentGame?.inventory.debt }}</span>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="col-xs-6 col-sm-6" id="element-fiatcoin">
+        <span style="font-size: 1.5em;" class="text-success">${{ currentGame?.inventory.fiatcoin }}</span>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+<!--<div class="jumbotron ion-text-center score-center" [ngStyle]="{background: 'linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(' + currentGame?.exchange.image + ')'}">
   <h3>
     <span id="span-exchange-day" style="color: #FFF;">
       DAY {{ currentGame?.day }}.<br />
@@ -6,7 +31,7 @@
       <span [ngClass]="{ 'text-danger': currentGame?.lastDay === currentGame?.day }">{{ (currentGame?.lastDay - currentGame?.day) }} DAYS LEFT.</span>
     </span>
   </h3>
-  <div class="row" style="margin-top: 7px;">
+  <div class="row">
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -23,4 +48,4 @@
     </ion-grid>
 
   </div>
-</div>
+</div>-->

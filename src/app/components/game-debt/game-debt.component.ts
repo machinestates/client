@@ -16,6 +16,8 @@ export class GameDebtComponent implements OnInit {
   public payQuantity = 0;
   public borrowQuantity = 0;
   public actionPending = false;
+  public activePay = false;
+  public activeBorrow = false;
 
   @Input() currentGame: GameInterface;
 
@@ -49,12 +51,14 @@ export class GameDebtComponent implements OnInit {
     const uuid = this.currentGame.uuid;
     this.store.dispatch(borrowAction({ uuid, amount: this.borrowQuantity }));
     this.borrowQuantity = 0;
+    this.activeBorrow = false;
   }
 
   pay() {
     const uuid = this.currentGame.uuid;
     this.store.dispatch(payDebtAction({ uuid, amount: this.payQuantity }));
     this.payQuantity = 0;
+    this.activePay = false;
   }
 
 }
