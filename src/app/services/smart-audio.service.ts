@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Platform} from '@ionic/angular';
 import {NativeAudio} from '@awesome-cordova-plugins/native-audio/ngx';
+import { SettingsService } from './settings.service';
 
 interface Sound {
     key: string;
@@ -17,12 +18,16 @@ export class SmartAudioService {
     private forceWebAudio = false;
     private isNative = false;
     private nativeAudio: NativeAudio = new NativeAudio();
+    private soundOn: boolean;
 
-    constructor(private platform: Platform) {
+    constructor(private platform: Platform, private settingsService: SettingsService) {
         platform.ready().then(() => {
             if (platform.is('cordova')) {
                 this.isNative = true;
             }
+        });
+        this.settingsService.getSound().subscribe((sound) => {
+          this.soundOn = sound;
         });
     }
 
@@ -48,6 +53,9 @@ export class SmartAudioService {
     }
 
     play(key: string): boolean {
+        if (!this.soundOn) {
+          return false;
+        }
         const soundToPlay: Sound = this.sounds.find((sound) => sound.key === key);
 
         if (soundToPlay) {

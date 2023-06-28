@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { signoutAction } from '../store/auth/actions/signout.action';
+import { SettingsService } from '../services/settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -8,11 +9,26 @@ import { signoutAction } from '../store/auth/actions/signout.action';
   styleUrls: ['settings.page.scss']
 })
 export class SettingsPage {
+  public sound: boolean;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private settingsService: SettingsService) {
+    this.initializeValues();
+  }
 
   signout() {
     this.store.dispatch(signoutAction());
   }
+
+  initializeValues() {
+    this.settingsService.getSound().subscribe((sound) => {
+      this.sound = sound;
+    });
+  }
+
+  toggleSound(event) {
+    this.settingsService.setSound(event);
+  }
+
+  
 
 }
