@@ -36,3 +36,11 @@
   font-family: 'CairoPlay', sans-serif;
   font-size: 2em;
 }
+
+ion-button {
+  box-shadow: 4.5px 4.5px 0 rgb(137, 127, 119)
+}
+
+ion-button:active {
+  box-shadow: none;
+}

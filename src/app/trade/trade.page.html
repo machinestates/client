@@ -17,13 +17,16 @@
   <!-- Game Interface -->
   <ng-container *ngIf="inProgress$ | async">
     <app-game-score [currentGame]="game$ | async"></app-game-score>
-    <app-game-actions [currentGame]="game$ | async"></app-game-actions>
     <app-game-debt [currentGame]="game$ | async" *ngIf="(game$ | async)?.exchange?.hasLoan"></app-game-debt>
     <app-game-exchange [currentGame]="game$ | async"></app-game-exchange>
   </ng-container>
   <!-- END: Game Interface -->
 
 </ion-content>
+
+<ion-footer *ngIf="inProgress$ | async">
+  <app-game-actions [currentGame]="game$ | async"></app-game-actions>
+</ion-footer>
 
 <ion-footer *ngIf="!(inProgress$ | async)">
   <ion-grid>
