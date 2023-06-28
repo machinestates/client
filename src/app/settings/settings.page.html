@@ -1,11 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Settings
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-toggle>Sound</ion-toggle>
+    </ion-item>
+  </ion-list>
   <ion-button (click)="signout()" expand="block">Sign Out</ion-button>
 </ion-content>

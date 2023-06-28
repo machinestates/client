@@ -3,11 +3,11 @@ import { Store } from '@ngrx/store';
 import { signoutAction } from '../store/auth/actions/signout.action';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-settings',
+  templateUrl: 'settings.page.html',
+  styleUrls: ['settings.page.scss']
 })
-export class Tab2Page {
+export class SettingsPage {
 
   constructor(private store: Store) {}
 
