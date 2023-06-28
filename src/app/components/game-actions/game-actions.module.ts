@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { GameActionsComponent } from './game-actions.component';
 import { GameTravelModalModule } from '../game-travel-modal/game-travel-modal.module';
+import { GameInventoryModalModule } from '../game-inventory-modal/game-inventory-modal.module';
 
 @NgModule({
   declarations: [GameActionsComponent],
@@ -11,7 +12,8 @@ import { GameTravelModalModule } from '../game-travel-modal/game-travel-modal.mo
     CommonModule,
     IonicModule,
     FormsModule,
-    GameTravelModalModule
+    GameTravelModalModule,
+    GameInventoryModalModule
   ],
   exports: [GameActionsComponent]
 })

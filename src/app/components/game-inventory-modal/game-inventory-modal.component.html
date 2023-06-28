@@ -1,0 +1,43 @@
+<div class="ion-page">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Inventory</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Coins: {{ coinsTotal }} OUT OF {{ inventory?.coinsCapacity }}</ion-label>
+      </ion-list-header>
+      <ion-item *ngIf="!inventory?.coins.length">
+        <ion-label>
+          <p>You have no coins.</p>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngFor="let coin of inventory?.coins">
+        <ion-label>
+          <h2>{{ coin.amount }} {{ coin.name }}</h2>
+        </ion-label>
+      </ion-item>
+
+      <ion-list-header>
+        <ion-label>Items: {{ inventory?.items.length }} OUT OF {{ inventory?.itemsCapacity }}</ion-label>
+      </ion-list-header>
+      <ion-item *ngIf="!inventory?.items.length">
+        <ion-label>
+          <p>You have no items.</p>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngFor="let item of inventory?.items">
+        <ion-label (click)="useItem(item)">
+          <h2>{{ item.name }}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+  <ion-footer>
+    <ion-button expand="full" (click)="close()">Close</ion-button>
+  </ion-footer>
+</div>

@@ -5,6 +5,7 @@ import { GameTravelModalComponent } from '../game-travel-modal/game-travel-modal
 import { Store } from '@ngrx/store';
 import { travelAction } from 'src/app/store/trade/actions/travel.action';
 import { completeGameAction } from 'src/app/store/trade/actions/complete-game.action';
+import { GameInventoryModalComponent } from '../game-inventory-modal/game-inventory-modal.component';
 
 @Component({
   selector: 'app-game-actions',
@@ -35,6 +36,14 @@ export class GameActionsComponent implements OnInit {
     return await modal.present();
   }
 
-  openInventoryModal() {}
+  async openInventoryModal() {
+    const modal = await this.modalController.create({
+      component: GameInventoryModalComponent,
+      componentProps: {
+        inventory: this.currentGame.inventory
+      }
+    });
+    return await modal.present();
+  }
 
 }
