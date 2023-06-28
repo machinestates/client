@@ -3,6 +3,7 @@
   <table class="table" id="table-exchange">
     <thead>
     <tr>
+      <th></th>
       <th>NAME</th>
       <th>PRICE</th>
       <th>BUY</th>
@@ -12,7 +13,10 @@
     <tbody>
     <tr *ngFor="let coin of coins">
       <td>
-        <a (click)="openCoinModal(coin)" style="cursor: pointer;" class="linkified">{{ coin.name.toUpperCase() }}</a>
+        <span class="dot"></span>
+      </td>
+      <td>
+        {{ coin.name.toUpperCase() }}
       </td>
       <th>{{ coin.price }}</th>
       <th>
