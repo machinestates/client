@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { NgxPopperjsPlacements } from "ngx-popperjs";
+import { GameInfoService } from "src/app/services/game-info.service";
 import { GameInterface } from "src/app/types/trade/game.interface";
 
 
@@ -9,8 +10,9 @@ import { GameInterface } from "src/app/types/trade/game.interface";
   styleUrls: ['./game-score.component.scss']
 })
 export class GameScoreComponent implements OnInit {
-  constructor() {}
+  constructor(private gameInfoService: GameInfoService) {}
   placement = NgxPopperjsPlacements.AUTOSTART;
+  exchangePopperClass = 'exchange-popper';
   @Input() currentGame: GameInterface;
 
   ngOnInit(): void {
@@ -18,5 +20,9 @@ export class GameScoreComponent implements OnInit {
 
   openExchangeModal(exchange) {
     console.log(exchange);
+  }
+
+  getExchangeDescription(exchange) {
+    return this.gameInfoService.getExchange(exchange.name).shortDescription;
   }
 }
