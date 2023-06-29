@@ -8,4 +8,5 @@ export interface GameInventoryInterface {
   itemsCapacity: number;
   coins: GameCoinInterface[];
   items: GameItemInterface[];
+  log: string[];
 }
