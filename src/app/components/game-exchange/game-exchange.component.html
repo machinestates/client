@@ -13,10 +13,12 @@
     <tbody>
     <tr *ngFor="let coin of coins">
       <td>
-        <span class="dot"></span>
+        <span class="dot" [popper]="getCoinDescription(coin)" [popperPlacement]="placement"></span>
       </td>
       <td>
-        {{ coin.name.toUpperCase() }}
+        <span [popper]="getCoinDescription(coin)" [popperPlacement]="placement">
+          {{ coin.name.toUpperCase() }}
+        </span>
       </td>
       <th>{{ coin.price }}</th>
       <th>

@@ -10,12 +10,23 @@
   <ion-row>
     <ion-col>
       <div class="col-xs-6 col-sm-6" id="element-debt">
-        <span style="font-size: 1.5em;" class="text-danger">${{ currentGame?.inventory.debt }}</span>
+        <span 
+          popper="Debt. Pay this off ASAP!" 
+          [popperPlacement]="placement" 
+          style="font-size: 1.5em;" 
+          class="text-danger">
+          ${{ currentGame?.inventory.debt }}
+        </span>
       </div>
     </ion-col>
     <ion-col>
       <div class="col-xs-6 col-sm-6" id="element-fiatcoin">
-        <span style="font-size: 1.5em;" class="text-success">${{ currentGame?.inventory.fiatcoin }}</span>
+        <span 
+          popper="Fiatcoin. This is your score. Stack it!" [popperPlacement]="placement"
+          style="font-size: 1.5em;" 
+          class="text-success">
+          ${{ currentGame?.inventory.fiatcoin }}
+        </span>
       </div>
     </ion-col>
   </ion-row>

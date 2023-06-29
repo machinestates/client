@@ -8,6 +8,8 @@ import * as _ from 'lodash';
 import { AlertService } from "src/app/services/alert.service";
 import { sellCoinAction } from "src/app/store/trade/actions/sell-coin.action";
 import { buyCoinAction } from "src/app/store/trade/actions/buy-coin.action";
+import { NgxPopperjsPlacements } from "ngx-popperjs";
+import { GameInfoService } from "src/app/services/game-info.service";
 
 @Component({
   selector: 'app-game-exchange',
@@ -19,8 +21,13 @@ export class GameExchangeComponent implements OnChanges, OnInit {
   actionPending: boolean = false;
   @Input() currentGame: GameInterface;
   coins: any[];
+  placement = NgxPopperjsPlacements.AUTOSTART;
 
-  constructor(private alertService: AlertService, private store: Store) {}
+  constructor(
+    private alertService: AlertService, 
+    private store: Store,
+    private gameInfoService: GameInfoService
+  ) {}
 
   ngOnInit(): void {
   }
@@ -30,7 +37,10 @@ export class GameExchangeComponent implements OnChanges, OnInit {
   }
 
   openCoinModal(coin) {
+  }
 
+  getCoinDescription(coin) {
+    return this.gameInfoService.getCoin(coin.name).shortDescription;
   }
 
   alertBuyAmount(coin) {

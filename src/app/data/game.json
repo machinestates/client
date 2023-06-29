@@ -1,0 +1,144 @@
+{
+  "exchanges": [
+    {
+      "name": "TENT CITY",
+      "image": "https://megacity-assets.s3.amazonaws.com/exchange-tent-city-600.png",
+      "description": "TENT CITY is one of the only open places where you can meet new people. The residents are skeptical of outside 'tech' influence. 1337 installed secure networks that are powered by unknown power sources. It offers a safe exchange, but it also offers few coins."
+    },
+    {
+      "name": "FEDERAL COIN SERVICE",
+      "image": "https://megacity-assets.s3.amazonaws.com/exchange-federal-coin-service-600.png",
+      "description": "FEDERAL COIN SERVICE, or FCS, is a converted federal post office and relic from the days before large tech companies running all government. It is a relatively safe (and boring) exchange."
+    },
+    {
+      "name": "PLASMANET",
+      "image": "https://megacity-assets.s3.amazonaws.com/exchange-plasmanet-600.png",
+      "description": "PLASMANET bolsters the only mainstream debt service in MEGACITY: PLASMADEBT. Despite it being a fairly dangerous place to go, all traders must go to PLASMANET to pay their debts, and to borrow more money."
+    },
+    {
+      "name": "VYPR",
+      "image": "https://megacity-assets.s3.amazonaws.com/exchange-vypr-600.png",
+      "description": "Made up of bounty hunters, VYPR was a main force in the GREAT TECH WAR. Their exchange bolsters a huge menu of coins to trade to lure you in, but beware: it is a very dangerous place to go."
+    },
+    {
+      "name": "UNIT COLONY",
+      "image": "https://megacity-assets.s3.amazonaws.com/exchange-unit-colony-600.png",
+      "description": "UNIT COLONY is a social service-based group involved in agriculture and the drug industries. It is known as one of the safer exchanges in MEGACITY."
+    },
+    {
+      "name": "CHARLOTTESWEB",
+      "image": "https://megacity-assets.s3.amazonaws.com/exchange-charlottes-web-600.png",
+      "description": "One of the safest exchanges in MEGACITY, CHARLOTTESWEB has an internal AI network to keep transactions out of harm's way. It was rumored to have been created by CJ and HASHIMOTO during the GREAT TECH WAR."
+    },
+    {
+      "name": "VEGA CITY",
+      "image": "https://megacity-assets.s3.amazonaws.com/exchange-vega-city-600.png",
+      "description": "VEGA CITY is the fun place to be in TENT CITY. It is fun, at all costs. The VEGA CITY exchange offers a good amount of coins, but it can also be quite dangerous."
+    },
+    {
+      "name": "PORT 23",
+      "image": "https://megacity-assets.s3.amazonaws.com/exchange-port23-600.png",
+      "description": "PORT 23 are the masters of manufacturing. It is a hard company to trust - and lacks any human ownership. It has a fairly strong coin offering, and a moderate amount of danger lurks."
+    },
+    {
+      "name": "JADE ROAD",
+      "image": "https://megacity-assets.s3.amazonaws.com/exchange-jade-road-600.png",
+      "description": "On any given day, JADE ROAD can offer the largest market for trading coins. While there are constant attempts to keep crime low, it can be a favorite target of cyber-muggers."
+    },
+    {
+      "name": "WI-FU",
+      "image": "https://megacity-assets.s3.amazonaws.com/exchange-wi-fu-600.png",
+      "description": "WI-FU (or WIRELESS FUSION) is a megacorp that produces and trades power. Depending on the power and communications markets, they sometimes offer little or a lot of coins to trade. They also tend to keep the crime down."
+    }
+  ],
+  "coins": [
+    {
+      "name": "SPECTR",
+      "uuid": "1949a388-5ad8-4e89-8309-747ae709b8db",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-spectr-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/spectr-token-64.png",
+      "description": "Little is known about SPECTR. Their buildings have no windows, and they have no public relations. They are essentially a giant factory to build robot workers. The robot works do most of the repetitive tasks in MEGACITY, and co-function as debt collectors for PLASMANET.",
+      "shortDescription": "Little is known about SPECTR. Their buildings have no windows, and they have no public relations."
+    },
+    {
+      "name": "HASHCOIN",
+      "uuid": "41f97144-79dd-4a6b-820e-3788b209b805",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-hashcoin-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/hashcoin-token-64.png",
+      "description": "The gold standard of MEGACITY. HASHCOIN was created by the mysterious KIKAI HASHIMOTO. It was the very first cryptocurrency. The legendary nature of the coin and its limited supply means that the price of HASHCOIN is always high, and sometimes it sky-rockets. The rich all measure wealth in HASHCOIN - especially rare HASHCOIN. It is said that about 80% of energy consumption of the MEGACITY goes to mining it.",
+      "shortDescription": "The gold standard of MEGACITY. HASHCOIN was created by the mysterious KIKAI HASHIMOTO."
+    },
+    {
+      "name": "KAIOTE",
+      "uuid": "19f7e26d-3a95-4e25-bea6-3d34cab8d804",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-kaiote-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/kaiote-token-64.png",
+      "description": "The first KAIOTE prototypes were created by a student in a tech school dorm. The company was later acquired by PORT 23. KAIOTE is an AI business with humanoid and animal-based robots who work tasks through MEGACITY.",
+      "shortDescription": "KAIOTE is an AI business with humanoid and animal-based robots who work tasks through MEGACITY."
+    },
+    {
+      "name": "QTAP",
+      "uuid": "645480d6-74a1-4b26-8cc7-4c1e0f446860",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-qtap-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/qtap-token-64.png",
+      "description": "QTAP was rumored to have started as an decentralized underground spy network in the FIRST TECH WAR. It was composed of multiple defectors from agencies around the globe. It was incorporated as a business during the GREAT RESET. QTAP has large surveillance apparatus throughout MEGACITY, and their technology can even be found in food and drugs.",
+      "shortDescription": "QTAP was rumored to have started as an decentralized underground spy network in the FIRST TECH WAR."
+    },
+    {
+      "name": "CACHE",
+      "uuid": "c50e6f9c-d8ad-4b81-93ac-db65b162a7f3",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-cache-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/cache-token-64.png",
+      "description": "Many believe CACHE to be created by the legendary KIKAI HASHIMOTO as their second project. CACHE as a technology allows poor TENT CITY dwellers to collect a large amount of base tokens for their work.",
+      "shortDescription": "Many believe CACHE to be created by the legendary KIKAI HASHIMOTO as their second project."
+    },
+    {
+      "name": "YEM",
+      "uuid": "ddbb61af-f13f-4a30-96e4-3b15ad1b5643",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-yem-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/yem-token-64.png",
+      "description": "YEM, short for Your Entertainment Machine, began when the five major media firms were losing control of sales. They organized and teamed up with technologists to effectively tokenize all media. They now represent the vast majority of MEGACITY celebrities - as well as the sporting champions of VEGA CITY.",
+      "shortDescription": "YEM, short for Your Entertainment Machine, began when the five major media firms were losing control of sales."
+    },
+    {
+      "name": "SYNTHGANIX",
+      "uuid": "670f3205-14b0-483b-b121-4fa66ed1dd9d",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-synthganix-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/synthganix-token-64.png",
+      "description": "The big pharmaceutical giants pivoted into generating synthetic foods. Though SYNTHGANIX claims they sell 'organic' foods in their marketing, the vast majority of their foods are artificial. They also happen to be the main funder of UNIT COLONY.",
+      "shortDescription": "The big pharmaceutical giants pivoted into generating synthetic foods."
+    },
+    {
+      "name": "HYPRCHAIN",
+      "uuid": "fd8631ec-39de-4afe-8c25-453d835476b2",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-hyprchain-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/hyprchain-token-64.png",
+      "description": "HYPRCHAIN was founded by a truly mega-entrepreneur who created the first major online payment gateway as well as a space exploration firm. He later moved his conscience into the GRID and runs his business cybernetically. HYPRCHAIN as a company builds and maintains roads using clean energy, and as a result of privatization they own most of them, earning major toll revenue. They are also the only alternative power company to WI-FU.",
+      "shortDescription": "HYPRCHAIN was founded by a truly mega-entrepreneur who created the first major online payment gateway as well as a space exploration firm."
+    },
+    {
+      "name": "PLATELETS",
+      "uuid": "f9699fd2-af56-48eb-83f4-4c4fdf73c5b3",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-platelets-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/platelets-token-64.png",
+      "description": "PLATELETS was created by PSYONIC SYSTEMS as a reserve currency for the re-payment of PLASMADEBT. PLASMANET was not interested in backing debts in FIATCOIN so they invented PLATELETS, which can be embedded in organic systems and monitored 24/7.",
+      "shortDescription": "PLATELETS was created by PSYONIC SYSTEMS as a reserve currency for the re-payment of PLASMADEBT."
+    },
+    {
+      "name": "1337",
+      "uuid": "174b3e8c-6a8c-47f0-baf4-7c71d026b0d3",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-1337-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/1337-token-64.png",
+      "description": "Hackers, who left the world's best tech jobs, fled to hidden residences and built a decentralized mega-network. 1337 is partially an activist organization devoted to bringing safer conditions to MEGACITY dwellers.",
+      "shortDescription": "Hackers, who left the world's best tech jobs, fled to hidden residences and built a decentralized mega-network."
+    },
+    {
+      "name": "PSYONIC",
+      "uuid": "7827932a-0c66-4331-82f9-6b77b41e10a7",
+      "image": "https://megacity-assets.s3.amazonaws.com/coin-psyonic-600.jpg",
+      "iconImage": "https://megacity-assets.s3.amazonaws.com/psyonic-token-64.png",
+      "description": "Some time ago the R&D department of a major drug factory made a wetware tech breakthrough. After research was blocked due to regulation, they formed an underground lab that is funded by PORT 23. They make embedded payment gateways, brain interfaces and cybernetic body parts and beings.",
+      "shortDescription": "Some time ago the R&D department of a major drug factory made a wetware tech breakthrough."
+    }
+  ]
+}
