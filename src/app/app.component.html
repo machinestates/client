@@ -1,3 +1,30 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-router-outlet id="main"></ion-router-outlet>
+  <ion-menu type="push" side="start" content-id="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title class="logo" style="font-size: 1.5em;">
+          Machine States
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item button>
+            <ion-icon name="pricetags-outline" slot="start"></ion-icon>
+            <ion-label>
+              <h2>Items</h2>
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item button>
+            <ion-icon name="exit-outline" slot="start"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
 </ion-app>
