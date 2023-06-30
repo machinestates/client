@@ -40,7 +40,8 @@ export class GameActionsComponent implements OnInit {
     const modal = await this.modalController.create({
       component: GameInventoryModalComponent,
       componentProps: {
-        inventory: this.currentGame.inventory
+        inventory: this.currentGame.inventory,
+        gameUuid: this.currentGame.uuid
       }
     });
     return await modal.present();

@@ -29,5 +29,9 @@ export enum ActionTypes {
 
   COMPLETE_GAME = '[Trade] Complete Game',
   COMPLETE_GAME_SUCCESS = '[Trade] Complete Game Success',
-  COMPLETE_GAME_FAILURE = '[Trade] Complete Game Failure'
+  COMPLETE_GAME_FAILURE = '[Trade] Complete Game Failure',
+
+  USE_ITEM = '[Trade] Use Item',
+  USE_ITEM_SUCCESS = '[Trade] Use Item Success',
+  USE_ITEM_FAILURE = '[Trade] Use Item Failure'
 }

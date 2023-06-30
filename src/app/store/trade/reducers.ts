@@ -9,6 +9,7 @@ import { payDebtAction, payDebtFailureAction, payDebtSuccessAction } from "./act
 import { buyCoinAction, buyCoinFailureAction, buyCoinSuccessAction } from "./actions/buy-coin.action";
 import { borrowAction, borrowFailureAction, borrowSuccessAction } from "./actions/borrow.action";
 import { completeGameAction, completeGameFailureAction, completeGameSuccessAction } from "./actions/complete-game.action";
+import { useItemAction, useItemFailureAction, useItemSuccessAction } from "./actions/use-item.action";
 
 const initialState: TradeStateInterface = {
   isSubmitting: false,
@@ -227,6 +228,33 @@ const tradeReducer = createReducer(
   ),
   on(
     completeGameFailureAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      isLoading: false,
+      actionPending: false,
+      error: action.error
+    })
+  ),
+  on(
+    useItemAction,
+    (state): TradeStateInterface => ({
+      ...state,
+      isLoading: true,
+      actionPending: true,
+      error: null
+    })
+  ),
+  on(
+    useItemSuccessAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      actionPending: false,
+      isLoading: false,
+      game: action.game
+    })
+  ),
+  on(
+    useItemFailureAction,
     (state, action): TradeStateInterface => ({
       ...state,
       isLoading: false,

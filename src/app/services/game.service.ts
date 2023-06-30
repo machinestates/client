@@ -4,6 +4,7 @@ import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GameResponseInterface } from '../types/trade/game-response.interface';
 import { GameExchangeInterface } from '../types/trade/game-exchange.interface';
+import { GameItemInterface } from '../types/trade/game-item.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -79,6 +80,18 @@ export class GameService {
       action: 'sell',
       coin: coin.name,
       quantity: coin.sellQuantity
+    }
+    const url = environment.apiUrl + '/trade/' + uuid;
+    return this.http.put<GameResponseInterface>(url, body).pipe(
+      map(response => response.game)
+    )
+  }
+
+  useItem(uuid: string, item: GameItemInterface) {
+    const body = {
+      action: 'useItem',
+      name: item.name,
+      uuid: item.uuid
     }
     const url = environment.apiUrl + '/trade/' + uuid;
     return this.http.put<GameResponseInterface>(url, body).pipe(
