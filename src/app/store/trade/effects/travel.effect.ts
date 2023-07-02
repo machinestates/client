@@ -11,6 +11,8 @@ import { AlertService } from "src/app/services/alert.service";
 import { LoadingService } from "src/app/services/loading.service";
 import { travelAction, travelFailureAction, travelSuccessAction } from "../actions/travel.action";
 import { GameAlertService } from "src/app/services/game-alert.service";
+import { ModalController } from "@ionic/angular";
+import { GameHackedModalComponent } from "src/app/components/game-hacked-modal/game-hacked-modal.component";
 
 
 @Injectable()
@@ -27,8 +29,18 @@ export class TravelEffect {
           map((game: GameInterface) => {
             return travelSuccessAction({ game })
           }),
-          tap((state) => {
+          tap(async (state) => {
             this.gameAlertService.travel(state.game);
+            // Hacked modal:
+            if (state.game.exchange.hasDanger && state.game.exchange.lossFromDanger > 0) {
+              const modal = await this.modalController.create({
+                component: GameHackedModalComponent,
+                componentProps: {
+                  amount: state.game.exchange.lossFromDanger
+                }
+              });
+              return await modal.present();
+            }
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             this.alertService.error([
@@ -47,6 +59,7 @@ export class TravelEffect {
     private gameService: GameService,
     private alertService: AlertService,
     private gameAlertService: GameAlertService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private modalController: ModalController
   ) {}
 }

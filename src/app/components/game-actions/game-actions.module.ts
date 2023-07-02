@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { GameActionsComponent } from './game-actions.component';
 import { GameTravelModalModule } from '../game-travel-modal/game-travel-modal.module';
 import { GameInventoryModalModule } from '../game-inventory-modal/game-inventory-modal.module';
+import { GameHackedModalComponent } from '../game-hacked-modal/game-hacked-modal.component';
+import { GameHackedModalModule } from '../game-hacked-modal/game-hacked-modal.module';
 
 @NgModule({
   declarations: [GameActionsComponent],
@@ -13,7 +15,8 @@ import { GameInventoryModalModule } from '../game-inventory-modal/game-inventory
     IonicModule,
     FormsModule,
     GameTravelModalModule,
-    GameInventoryModalModule
+    GameInventoryModalModule,
+    GameHackedModalModule
   ],
   exports: [GameActionsComponent]
 })

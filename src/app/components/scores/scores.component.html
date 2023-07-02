@@ -14,6 +14,9 @@
         <!-- Today -->
         <ng-container *ngSwitchCase="'today'">
           <ion-list *ngIf="scores$ | async as scores">
+            <div class="ion-text-center" *ngIf="!scores.today.length">
+              <p>No scores yet today.</p>
+            </div>
             <app-score-item [score]="score" *ngFor="let score of scores.today"></app-score-item>
           </ion-list>
         </ng-container>
@@ -21,6 +24,9 @@
         <!-- All-Time -->
         <ng-container *ngSwitchCase="'alltime'">
           <ion-list *ngIf="scores$ | async as scores">
+            <div class="ion-text-center" *ngIf="!scores.alltime.length">
+              <p>No scores yet.</p>
+            </div>
             <app-score-item [score]="score" *ngFor="let score of scores.alltime"></app-score-item>
           </ion-list>
         </ng-container>

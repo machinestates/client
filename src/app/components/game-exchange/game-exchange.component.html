@@ -25,6 +25,7 @@
         <button *ngIf="!coin.activeBuy"
           type="button"
           class="btn btn-buy"
+          [disabled]="!getMaxBuyQuantity(coin.price)"
           (click)="coin.activeBuy = true">
             Buy
           </button>
@@ -62,6 +63,7 @@
         <button *ngIf="!coin.activeSell"
           type="button"
           class="btn btn-sell"
+          [disabled]="!getMaxSellQuantity(coin)"
           (click)="coin.activeSell = true">
             Sell
           </button>

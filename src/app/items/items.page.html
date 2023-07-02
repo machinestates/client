@@ -8,7 +8,7 @@
 
 <ion-content *ngIf="items$ | async as items">
   <ion-list>
-    <div *ngIf="!items.length">
+    <div class="ion-text-center" *ngIf="!items.length">
       <p>You have no items.</p>
     </div>
     <ion-item *ngFor="let item of items">
