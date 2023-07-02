@@ -6,6 +6,7 @@ import { Store, select } from '@ngrx/store';
 import { errorSelector, isSubmittingSelector } from '../store/auth/selectors';
 import { Observable } from 'rxjs';
 import { AuthErrorInterface } from '../types/auth/auth-error.interface';
+import { IonRouterOutlet } from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
@@ -44,7 +45,6 @@ export class SignupPage implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log(this.form.value);
       const request: SignupRequestInterface = {
         user: this.form.value
       }

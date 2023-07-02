@@ -33,5 +33,5 @@ export enum ActionTypes {
 
   USE_ITEM = '[Trade] Use Item',
   USE_ITEM_SUCCESS = '[Trade] Use Item Success',
-  USE_ITEM_FAILURE = '[Trade] Use Item Failure'
+  USE_ITEM_FAILURE = '[Trade] Use Item Failure',
 }

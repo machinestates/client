@@ -14,6 +14,7 @@ import { AuthStoreModule } from './store/auth/auth-store.module';
 import { TradeStoreModule } from './store/trade/trade-store.module';
 import { AuthInterceptor } from './services/auth-interceptor.service';
 import { clearStateMetaReducer } from './store/meta/clear-state.reducer';
+import { UserStoreModule } from './store/user/user-store.module';
 
 const metaReducers: Array<MetaReducer<any, any>> = [clearStateMetaReducer];
 
@@ -21,14 +22,15 @@ const metaReducers: Array<MetaReducer<any, any>> = [clearStateMetaReducer];
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({ swipeBackEnabled: false }),
     AppRoutingModule,
     StoreModule.forRoot({}, { metaReducers }),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([]),
     HttpClientModule,
     AuthStoreModule,
-    TradeStoreModule
+    TradeStoreModule,
+    UserStoreModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

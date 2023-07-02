@@ -11,6 +11,8 @@ import { AlertService } from "src/app/services/alert.service";
 import { LoadingService } from "src/app/services/loading.service";
 import { SmartAudioService } from "src/app/services/smart-audio.service";
 import { useItemAction, useItemFailureAction, useItemSuccessAction } from "../actions/use-item.action";
+import { Store } from "@ngrx/store";
+import { getItemsAction } from "../../user/actions/get-items.action";
 
 
 @Injectable()
@@ -25,6 +27,7 @@ export class UseItemEffect {
       switchMap(({ uuid, item }) => {
         return this.gameService.useItem(uuid, item).pipe(
           map((game: GameInterface) => {
+            this.store.dispatch(getItemsAction());
             return useItemSuccessAction({ game })
           }),
           tap((state) => {
@@ -48,6 +51,6 @@ export class UseItemEffect {
     private gameService: GameService,
     private alertService: AlertService,
     private loadingService: LoadingService,
-    private smartAudioService: SmartAudioService
+    private store: Store
   ) {}
 }
