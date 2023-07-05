@@ -11,11 +11,11 @@ import { CoinInterface } from '../types/user/coin.interface';
 import { getCoinsAction } from '../store/user/actions/get-coins.action';
 
 @Component({
-  selector: 'app-items',
-  templateUrl: 'items.page.html',
-  styleUrls: ['items.page.scss']
+  selector: 'app-inventory',
+  templateUrl: 'inventory.page.html',
+  styleUrls: ['inventory.page.scss']
 })
-export class ItemsPage implements OnInit {
+export class InventoryPage implements OnInit {
 
   inventoryType: string = 'items';
   items$: Observable<ItemInterface[]>;
