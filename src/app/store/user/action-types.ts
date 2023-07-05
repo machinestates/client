@@ -9,5 +9,9 @@ export enum ActionTypes {
 
   UNEQUIP_ITEM = '[User] Unequip Item',
   UNEQUIP_ITEM_SUCCESS = '[User] Unequip Item Success',
-  UNEQUIP_ITEM_FAILURE = '[User] Unequip Item Failure'
+  UNEQUIP_ITEM_FAILURE = '[User] Unequip Item Failure',
+
+  GET_COINS = '[User] Get Coins',
+  GET_COINS_SUCCESS = '[User] Get Coins Success',
+  GET_COINS_FAILURE = '[User] Get Coins Failure',
 }

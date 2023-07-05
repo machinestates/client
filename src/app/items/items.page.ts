@@ -15,6 +15,7 @@ import { inProgressSelector } from '../store/trade/selectors';
 })
 export class ItemsPage implements OnInit {
 
+  inventoryType: string = 'items';
   items$: Observable<ItemInterface[]>;
   inProgress$: Observable<boolean>;
   constructor(private store: Store) {}

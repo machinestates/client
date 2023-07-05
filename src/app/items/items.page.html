@@ -1,42 +1,65 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Items
+      Inventory
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="items$ | async as items">
-  <ion-list>
-    <div class="ion-text-center" *ngIf="!items.length">
-      <p>You have no items.</p>
-    </div>
-    <ion-item *ngFor="let item of items">
-      <ion-avatar slot="start">
-        <ion-img [src]="item.imageSource"></ion-img>
-      </ion-avatar>
-      <ion-label>
-        <h3>{{ item.name }}</h3>
-        <h4>{{ item.rarity.toUpperCase() }}</h4>
-        <p class="ion-text-wrap">{{ item.description }}</p>
-      </ion-label>
-      <ion-button
-        class="end-btn"
-        slot="end"
-        [disabled]="inProgress$ | async"
-        *ngIf="!item.equipped && item.equippable"
-        (click)="equip(item)">
-        Equip
-      </ion-button>
-      <ion-button
-        class="end-btn"
-        *ngIf="item.equipped"
-        [disabled]="inProgress$ | async"
-        slot="end"
-        color="danger"
-        (click)="unequip(item)">
-        Unequip
-      </ion-button>
-    </ion-item>
-  </ion-list>
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-segment value="items" [(ngModel)]="inventoryType">
+          <ion-segment-button value="items" checked>
+            <ion-label>Items</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="coins">
+            <ion-label>Coins</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      
+      
+        <div [ngSwitch]="inventoryType">
+          <!-- Today -->
+          <ng-container *ngSwitchCase="'items'">
+            <ion-list *ngIf="items$ | async as items">
+              <div class="ion-text-center" *ngIf="!items.length">
+                <p>You have no items.</p>
+              </div>
+              <ion-item *ngFor="let item of items">
+                <ion-avatar slot="start">
+                  <ion-img [src]="item.imageSource"></ion-img>
+                </ion-avatar>
+                <ion-label>
+                  <h3>{{ item.name }}</h3>
+                  <h4>{{ item.rarity.toUpperCase() }}</h4>
+                  <p class="ion-text-wrap">{{ item.description }}</p>
+                </ion-label>
+                <ion-button
+                  class="end-btn"
+                  slot="end"
+                  [disabled]="inProgress$ | async"
+                  *ngIf="!item.equipped && item.equippable"
+                  (click)="equip(item)">
+                  Equip
+                </ion-button>
+                <ion-button
+                  class="end-btn"
+                  *ngIf="item.equipped"
+                  [disabled]="inProgress$ | async"
+                  slot="end"
+                  color="danger"
+                  (click)="unequip(item)">
+                  Unequip
+                </ion-button>
+              </ion-item>
+            </ion-list>
+          </ng-container>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
 </ion-content>

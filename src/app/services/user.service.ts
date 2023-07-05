@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ItemInterface } from '../types/user/item.interface';
+import { CoinInterface } from '../types/user/coin.interface';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { ItemResponseInterface } from '../types/user/item-response.interface';
+import { CoinResponseInterface } from '../types/user/coin-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +18,13 @@ export class UserService {
     const url = environment.apiUrl + '/users/me/items';
     return this.http.get<ItemResponseInterface>(url).pipe(
       map(response => response.items)
+    )
+  }
+
+  getCoins(): Observable<CoinInterface[]> {
+    const url = environment.apiUrl + '/users/me/coins';
+    return this.http.get<CoinResponseInterface>(url).pipe(
+      map(response => response.coins)
     )
   }
 
