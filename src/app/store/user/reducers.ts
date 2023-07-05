@@ -3,11 +3,13 @@ import { UserStateInterface } from "src/app/types/user/user-state.interface";
 import { getItemsAction, getItemsFailureAction, getItemsSuccessAction } from "./actions/get-items.action";
 import { equipItemAction, equipItemFailureAction, equipItemSuccessAction } from "./actions/equip-item.action";
 import { unequipItemAction, unequipItemFailureAction, unequipItemSuccessAction } from "./actions/unequip-item.action";
+import { getCoinsAction, getCoinsFailureAction, getCoinsSuccessAction } from "./actions/get-coins.action";
 
 const initialState: UserStateInterface = {
   isLoading: false,
   error: null,
-  items: null
+  items: null,
+  coins: null
 }
 
 const userReducer = createReducer(
@@ -30,6 +32,30 @@ const userReducer = createReducer(
   ),
   on(
     getItemsFailureAction,
+    (state, action): UserStateInterface => ({
+      ...state,
+      isLoading: false,
+      error: action.error
+    })
+  ),
+  on(
+    getCoinsAction,
+    (state): UserStateInterface => ({
+      ...state,
+      isLoading: true,
+      error: null
+    })
+  ),
+  on(
+    getCoinsSuccessAction,
+    (state, action): UserStateInterface => ({
+      ...state,
+      isLoading: false,
+      coins: action.coins
+    })
+  ),
+  on(
+    getCoinsFailureAction,
     (state, action): UserStateInterface => ({
       ...state,
       isLoading: false,

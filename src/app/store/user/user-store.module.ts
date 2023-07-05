@@ -6,6 +6,7 @@ import { reducers } from './reducers';
 import { GetItemsEffect } from './effects/get-items.effect';
 import { EquipItemEffect } from './effects/equip-item.effect';
 import { UnequipItemEffect } from './effects/unequip-item.effect';
+import { GetCoinsEffect } from './effects/get-coins.effect';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UnequipItemEffect } from './effects/unequip-item.effect';
     EffectsModule.forFeature([
       GetItemsEffect,
       EquipItemEffect,
-      UnequipItemEffect
+      UnequipItemEffect,
+      GetCoinsEffect
     ]),
     StoreModule.forFeature('user', reducers)
   ]

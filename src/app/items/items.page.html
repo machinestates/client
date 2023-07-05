@@ -22,7 +22,6 @@
       
       
         <div [ngSwitch]="inventoryType">
-          <!-- Today -->
           <ng-container *ngSwitchCase="'items'">
             <ion-list *ngIf="items$ | async as items">
               <div class="ion-text-center" *ngIf="!items.length">
@@ -54,6 +53,19 @@
                   (click)="unequip(item)">
                   Unequip
                 </ion-button>
+              </ion-item>
+            </ion-list>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'coins'">
+            <ion-list *ngIf="coins$ | async as coins">
+              <div class="ion-text-center" *ngIf="!coins.length">
+                <p>You have no coins.</p>
+              </div>
+              <ion-item *ngFor="let coin of coins">
+                <ion-label>
+                  <h3>{{ coin.amount }} {{ coin.name }}</h3>
+                </ion-label>
               </ion-item>
             </ion-list>
           </ng-container>

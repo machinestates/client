@@ -13,3 +13,8 @@ export const itemsSelector = createSelector(
   userFeatureSelector,
   (userState: UserStateInterface) => userState.items
 );
+
+export const coinsSelector = createSelector(
+  userFeatureSelector,
+  (userState: UserStateInterface) => userState.coins
+);
