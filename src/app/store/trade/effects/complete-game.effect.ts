@@ -14,6 +14,8 @@ import { SmartAudioService } from "src/app/services/smart-audio.service";
 import { Vibration } from "@awesome-cordova-plugins/vibration/ngx";
 import { Store } from "@ngrx/store";
 import { getCoinsAction } from "../../user/actions/get-coins.action";
+import { ModalController } from "@ionic/angular";
+import { GameStoryModalComponent } from "src/app/components/game-story-modal/game-story-modal.component";
 
 
 @Injectable()
@@ -22,7 +24,7 @@ export class CompleteGameEffect {
     this.actions$.pipe(
       ofType(completeGameAction),
       switchMap(async ({ uuid }) => {
-        await this.loadingService.present('Completing round and creating story...');
+        await this.loadingService.present('Completing round...');
         return { uuid };
       }),
       switchMap(({ uuid }) => {
@@ -45,7 +47,7 @@ export class CompleteGameEffect {
   completeGameSuccess$ = createEffect(
     () => this.actions$.pipe(
       ofType(completeGameSuccessAction),
-      tap((state) => {
+      tap(async (state) => {
         const minted = [];
         if (state.game.minted) {
           // Refresh the coins list via action:
@@ -61,6 +63,13 @@ export class CompleteGameEffect {
           `This round of the TRADING SIMULATION is complete.`,
           `Your final FIATCOIN score for the round is $${state.game.score}.`
         ].concat(minted), 85);
+        const modal = await this.modalController.create({
+          component: GameStoryModalComponent,
+          componentProps: {
+            story: state.game.story
+          }
+        });
+        await modal.present();
       })
     ),
     { dispatch: false }
@@ -72,6 +81,7 @@ export class CompleteGameEffect {
     private alertService: AlertService,
     private loadingService: LoadingService,
     private smartAudioService: SmartAudioService,
-    private store: Store
+    private store: Store,
+    private modalController: ModalController
   ) {}
 }

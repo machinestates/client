@@ -11,6 +11,7 @@ import { GameExchangeModule } from '../components/game-exchange/game-exchange.mo
 import { AlertModule } from '../components/alert/alert.module';
 import { GameActionsModule } from '../components/game-actions/game-actions.module';
 import { GameDebtModule } from '../components/game-debt/game-debt.module';
+import { GameStoryModalModule } from '../components/game-story-modal/game-story-modal.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { GameDebtModule } from '../components/game-debt/game-debt.module';
     GameExchangeModule,
     AlertModule,
     GameActionsModule,
-    GameDebtModule
+    GameDebtModule,
+    GameStoryModalModule
   ],
   declarations: [TradePage]
 })
