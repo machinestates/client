@@ -12,6 +12,8 @@ import { LoadingService } from "src/app/services/loading.service";
 import { completeGameAction, completeGameFailureAction, completeGameSuccessAction } from "../actions/complete-game.action";
 import { SmartAudioService } from "src/app/services/smart-audio.service";
 import { Vibration } from "@awesome-cordova-plugins/vibration/ngx";
+import { Store } from "@ngrx/store";
+import { getCoinsAction } from "../../user/actions/get-coins.action";
 
 
 @Injectable()
@@ -20,21 +22,13 @@ export class CompleteGameEffect {
     this.actions$.pipe(
       ofType(completeGameAction),
       switchMap(async ({ uuid }) => {
-        await this.loadingService.present('Completing round...');
+        await this.loadingService.present('Completing round and creating story...');
         return { uuid };
       }),
       switchMap(({ uuid }) => {
         return this.gameService.completeGame(uuid).pipe(
           map((game: GameInterface) => {
             return completeGameSuccessAction({ game })
-          }),
-          tap((state) => {
-            new Vibration().vibrate(3000);
-            this.smartAudioService.play('end');
-            this.alertService.success([
-              `This round of the TRADING SIMULATION is complete.`,
-              `Your final FIATCOIN score for the round is $${state.game.score}.`
-            ], 85);
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             this.alertService.error([
@@ -48,11 +42,36 @@ export class CompleteGameEffect {
     )
   );
 
+  completeGameSuccess$ = createEffect(
+    () => this.actions$.pipe(
+      ofType(completeGameSuccessAction),
+      tap((state) => {
+        const minted = [];
+        if (state.game.minted) {
+          // Refresh the coins list via action:
+          this.store.dispatch(getCoinsAction());
+          // Add text to success message:
+          state.game.coins.forEach((coin) => {
+            minted.push(`Minted ${coin.amount} ${coin.name}!`);
+          });
+        }
+        new Vibration().vibrate(3000);
+        this.smartAudioService.play('end');
+        this.alertService.success([
+          `This round of the TRADING SIMULATION is complete.`,
+          `Your final FIATCOIN score for the round is $${state.game.score}.`
+        ].concat(minted), 85);
+      })
+    ),
+    { dispatch: false }
+  )
+
   constructor(
     private actions$: Actions,
     private gameService: GameService,
     private alertService: AlertService,
     private loadingService: LoadingService,
-    private smartAudioService: SmartAudioService
+    private smartAudioService: SmartAudioService,
+    private store: Store
   ) {}
 }

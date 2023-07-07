@@ -18,6 +18,11 @@ export const gameSelector = createSelector(
   (tradeState: TradeStateInterface) => tradeState.game
 );
 
+export const storySelector = createSelector(
+  tradeFeatureSelector,
+  (tradeState: TradeStateInterface) => tradeState.game.story
+);
+
 export const inProgressSelector = createSelector(
   tradeFeatureSelector,
   (tradeState: TradeStateInterface) => tradeState.inProgress
