@@ -13,6 +13,7 @@ export interface GameInterface {
   day: number;
   lastDay: number;
   story?: string;
+  storyAudio?: string;
   exchange: GameExchangeInterface
   exchanges: GameExchangeInterface[];
   inventory: GameInventoryInterface;

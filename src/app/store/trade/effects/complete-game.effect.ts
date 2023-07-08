@@ -66,7 +66,8 @@ export class CompleteGameEffect {
         const modal = await this.modalController.create({
           component: GameStoryModalComponent,
           componentProps: {
-            story: state.game.story
+            story: state.game.story,
+            typeSpeed: 15
           }
         });
         await modal.present();

@@ -6,5 +6,8 @@
     <h6>@{{ score.handle }}</h6>
     <p>${{ score.score }}</p>
   </ion-label>
-  <ion-icon *ngIf="score.top" name="star" slot="end"></ion-icon>
+  <ion-icon name="reader-outline" slot="end"></ion-icon>
+
+  <ion-icon class="player-buttons" name="stop" (click)="stop()" slot="end" *ngIf="playing"></ion-icon>
+  <ion-icon class="player-buttons" name="play" (click)="play()" slot="end" *ngIf="!playing"></ion-icon>
 </ion-item>
