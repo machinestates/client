@@ -11,6 +11,7 @@ import { Share } from '@capacitor/share';
 export class GameStoryModalComponent  implements OnInit, AfterViewInit {
   @ViewChild('wrapper') private content;
   @Input() story: string;
+  @Input() typeSpeed: number;
 
   constructor(private modalController: ModalController) { }
 
@@ -20,7 +21,7 @@ export class GameStoryModalComponent  implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     new Typed(this.content.nativeElement.querySelector('.story'), {
       strings: [this.story],
-      typeSpeed: 15
+      typeSpeed: this.typeSpeed
     });
   }
 

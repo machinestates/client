@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { ScoreInterface } from 'src/app/types/trade/score.interface';
+import { GameStoryModalComponent } from '../game-story-modal/game-story-modal.component';
 
 
 @Component({
@@ -13,7 +15,7 @@ export class ScoreItemComponent implements OnInit {
   audio: any;
   playing = false;
 
-  constructor() {
+  constructor(private modalController: ModalController) {
   }
 
   ngOnInit() {
@@ -31,5 +33,16 @@ export class ScoreItemComponent implements OnInit {
   stop() {
     this.playing = false;
     this.audio.pause();
+  }
+
+  async read() {
+    const modal = await this.modalController.create({
+      component: GameStoryModalComponent,
+      componentProps: {
+        story: this.score.story.replace(/\n/g, "<br />"),
+        typeSpeed: 0
+      }
+    });
+    await modal.present();
   }
 }

@@ -19,6 +19,7 @@ export class SignoutEffect {
         tap(() => {
           this.persistenceService.remove('accessToken');
           this.router.navigateByUrl('/signin');
+          location.reload();
         })
       ),
       { dispatch: false }  
