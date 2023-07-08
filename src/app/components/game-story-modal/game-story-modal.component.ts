@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import Typed from 'typed.js';
+import { Share } from '@capacitor/share';
 
 @Component({
   selector: 'app-game-story-modal',
@@ -26,6 +27,13 @@ export class GameStoryModalComponent  implements OnInit, AfterViewInit {
   close() {
     this.modalController.dismiss({
       dismissed: true
+    });
+  }
+
+  async share() {
+    await Share.share({
+      title: 'Game Story',
+      text: this.story.replace(/<br\s*[\/]?>/gi, '\n')
     });
   }
 
