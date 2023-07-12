@@ -39,8 +39,7 @@ export class ScoreItemComponent implements OnInit {
     const modal = await this.modalController.create({
       component: GameStoryModalComponent,
       componentProps: {
-        story: this.score.story.replace(/\n/g, "<br />"),
-        typeSpeed: 0
+        story: this.score.story.replace(/\n/g, "<br />")
       }
     });
     await modal.present();
