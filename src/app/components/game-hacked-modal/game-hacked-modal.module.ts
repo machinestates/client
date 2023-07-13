@@ -9,7 +9,7 @@ import { GameHackedModalComponent } from './game-hacked-modal.component';
     CommonModule,
     IonicModule
   ],
-  exports: [GameHackedModalComponent]
+  exports: [GameHackedModalComponent],
 })
 export class GameHackedModalModule {
 

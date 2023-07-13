@@ -2,16 +2,23 @@ import { ViewChild, Component, Input, OnInit, AfterViewInit } from '@angular/cor
 import { ModalController } from '@ionic/angular';
 import Typed, { TypedOptions } from 'typed.js';
 
+import { flashAnimation, heartBeatAnimation } from 'angular-animations';
+
+
 @Component({
   selector: 'app-game-hacked-modal',
   templateUrl: './game-hacked-modal.component.html',
   styleUrls: ['./game-hacked-modal.component.scss'],
+  animations: [
+    heartBeatAnimation()
+  ]
 })
 export class GameHackedModalComponent implements OnInit, AfterViewInit {
 
   @Input() amount: number;
   image: string = 'assets/images/hacked-image0.jpg';
   @ViewChild('wrapper') private content;
+  animationState: boolean;
 
   constructor(private modalController: ModalController) { }
 
@@ -21,6 +28,10 @@ export class GameHackedModalComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.initializeValues();
+    this.animationState = false;
+    setTimeout(() => {
+      this.animationState = true;
+    }, 1000);
   }
 
   close() {

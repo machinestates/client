@@ -30,7 +30,7 @@ export class GameAlertService {
       messages.unshift(this.generateDanger(exchange));
       
       this.vibration.vibrate(3000);
-      this.smartAudioService.play('hacked');
+      this.smartAudioService.play('borrow');
       
       this.alertService.error(messages, 55);
     } else {
