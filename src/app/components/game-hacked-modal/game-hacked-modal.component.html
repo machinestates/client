@@ -8,9 +8,11 @@
   <ion-content class="ion-padding">
     <ion-grid>
       <ion-row>
-        <ion-col class="ion-text-center">
-          <p>HACKED! ${{ amount }} has been taken! Avoid carrying fiatcoin to dangerous exchanges.</p>
-        </ion-col>
+        <div #wrapper style="min-height: 80px;">
+          <ion-col>
+            <p><span class="typing"></span></p>
+          </ion-col>
+        </div>
       </ion-row>
       <ion-row>
         <ion-col>
