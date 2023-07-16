@@ -11,4 +11,5 @@ export interface GameCoinInterface {
   isExpensive: boolean;
   isCheap: boolean;
   amount?: number;
+  color?: string;
 }

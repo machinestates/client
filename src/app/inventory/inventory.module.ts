@@ -5,13 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { InventoryPage } from './inventory.page';
 
 import { InventoryPageRoutingModule } from './inventory-routing.module';
+import { AlertModule } from '../components/alert/alert.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    InventoryPageRoutingModule
+    InventoryPageRoutingModule  
   ],
   declarations: [InventoryPage]
 })
