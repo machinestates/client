@@ -15,7 +15,7 @@ import { Vibration } from "@awesome-cordova-plugins/vibration/ngx";
 import { Store } from "@ngrx/store";
 import { getCoinsAction } from "../../user/actions/get-coins.action";
 import { ModalController } from "@ionic/angular";
-import { GameStoryModalComponent } from "src/app/components/game-story-modal/game-story-modal.component";
+import { GameEndModalComponent } from "src/app/components/game-end-modal/game-end-modal.component";
 
 
 @Injectable()
@@ -64,9 +64,10 @@ export class CompleteGameEffect {
           `Your final FIATCOIN score for the round is $${state.game.score}.`
         ].concat(minted), 85);
         const modal = await this.modalController.create({
-          component: GameStoryModalComponent,
+          component: GameEndModalComponent,
           componentProps: {
-            story: state.game.story
+            story: state.game.story,
+            coins: state.game.minted ? state.game.coins : [],
           }
         });
         await modal.present();
