@@ -11,6 +11,17 @@
     <ion-item>
       <ion-toggle [(ngModel)]="sound" (ngModelChange)="toggleSound($event)">Sound</ion-toggle>
     </ion-item>
+    <app-settings-phantom></app-settings-phantom>
   </ion-list>
-  <ion-button (click)="signout()" expand="block">Sign Out</ion-button>
 </ion-content>
+
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="signout()" expand="block">Sign Out</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

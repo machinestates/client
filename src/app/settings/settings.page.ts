@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { signoutAction } from '../store/auth/actions/signout.action';
 import { SettingsService } from '../services/settings.service';
@@ -8,10 +8,13 @@ import { SettingsService } from '../services/settings.service';
   templateUrl: 'settings.page.html',
   styleUrls: ['settings.page.scss']
 })
-export class SettingsPage {
+export class SettingsPage implements OnInit {
   public sound: boolean;
-
+  
   constructor(private store: Store, private settingsService: SettingsService) {
+  }
+
+  ngOnInit(): void {
     this.initializeValues();
   }
 
@@ -28,7 +31,5 @@ export class SettingsPage {
   toggleSound(event) {
     this.settingsService.setSound(event);
   }
-
-  
 
 }

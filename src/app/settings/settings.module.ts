@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { SettingsPage } from './settings.page';
 
 import { SettingsPageRoutingModule } from './settings-routing.module';
+import { SettingsPhantomModule } from '../components/settings-phantom/settings-phantom.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    SettingsPageRoutingModule
+    SettingsPageRoutingModule,
+    SettingsPhantomModule
   ],
   declarations: [SettingsPage]
 })

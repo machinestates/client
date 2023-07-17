@@ -1,0 +1,6 @@
+<ion-item>
+  <ion-button (click)="connectPhantomWallet()">Connect Phantom Wallet</ion-button>
+</ion-item>
+<ion-item *ngIf="address">
+  <ion-label class="address ion-text-wrap">{{ address }}</ion-label>
+</ion-item>
