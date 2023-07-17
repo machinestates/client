@@ -24,14 +24,14 @@ export class GameHackedModalComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.randomizeImage();
-  }
-
-  ngAfterViewInit() {
-    this.initializeValues();
     this.animationState = false;
     setTimeout(() => {
       this.animationState = true;
     }, 1000);
+  }
+
+  ngAfterViewInit() {
+    this.initializeValues();
   }
 
   close() {
