@@ -16,6 +16,7 @@ import { AuthInterceptor } from './services/auth-interceptor.service';
 import { clearStateMetaReducer } from './store/meta/clear-state.reducer';
 import { UserStoreModule } from './store/user/user-store.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SolanaStoreModule } from './store/solana/solana-store.module';
 
 const metaReducers: Array<MetaReducer<any, any>> = [clearStateMetaReducer];
 
@@ -32,6 +33,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [clearStateMetaReducer];
     AuthStoreModule,
     TradeStoreModule,
     UserStoreModule,
+    SolanaStoreModule,
     BrowserAnimationsModule
   ],
   providers: [

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { connectPhantomWalletAction } from 'src/app/store/solana/actions/connect-phantom-wallet.action';
+import { publicKeySelector } from 'src/app/store/solana/selectors';
 
 @Component({
   selector: 'app-settings-phantom',
@@ -7,28 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsPhantomComponent  implements OnInit {
 
-  address: string = '';
+  publicKey$: Observable<string | null>;
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
     this.connectPhantomWallet();
+    this.initializeValues();
   }
 
   // TODO: Move to service:
   async connectPhantomWallet() {
-    if ('phantom' in window) {
-      const provider = (window as any).phantom?.solana;
-      if (provider?.isPhantom) {
-        const connected = await provider.connect();
-        if (connected) {
-          this.address = provider.publicKey.toString();
-          console.log('Connected to Phantom Wallet: ', provider.publicKey.toString());
+    this.store.dispatch(connectPhantomWalletAction());
+  }
 
-        }
-      }
-    }
-    // window.open('https://phantom.app/ul/v1/connect?app_url=https://www.machinestates.com');
+  initializeValues() {
+    this.publicKey$ = this.store.pipe(select(publicKeySelector));
   }
 
 }
