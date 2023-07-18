@@ -19,7 +19,7 @@ export class SolanaService {
         }
       }
     }
-    return false;
+    throw new Error('No Phantom Wallet found.');
     // TODO: For mobile, use deeplinking to open Phantom:
   }
 }

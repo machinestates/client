@@ -16,7 +16,6 @@ export class SettingsPhantomComponent  implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit() {
-    this.connectPhantomWallet();
     this.initializeValues();
   }
 

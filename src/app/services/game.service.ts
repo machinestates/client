@@ -13,9 +13,9 @@ export class GameService {
 
   constructor(private http: HttpClient) { }
 
-  start() {
+  start(publicKey: string = '') {
     const url = environment.apiUrl + '/trade';
-    return this.http.post<GameResponseInterface>(url, {}).pipe(
+    return this.http.post<GameResponseInterface>(url, { publicKey }).pipe(
       map(response => response.game)
     )
   }

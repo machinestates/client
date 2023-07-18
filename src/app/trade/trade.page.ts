@@ -6,6 +6,8 @@ import { gameSelector, inProgressSelector } from '../store/trade/selectors';
 import { Observable } from 'rxjs';
 import { GameInterface } from '../types/trade/game.interface';
 import { SmartAudioService } from '../services/smart-audio.service';
+import { publicKeySelector } from '../store/solana/selectors';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-trade',
@@ -18,14 +20,47 @@ export class TradePage implements OnInit {
   inProgress$: Observable<boolean>;
   completed$: Observable<boolean>;
 
-  constructor(private store: Store, private smartAudioService: SmartAudioService) {}
+  constructor(
+    private store: Store, 
+    private smartAudioService: SmartAudioService, 
+    private alertController: AlertController
+  ) {}
 
   ngOnInit() {
     this.initializeValues();
   }
 
-  start() {
-    this.store.dispatch(startNewGameAction());
+  async start() {
+    // Check if there's a Solana public key:
+    this.store.pipe(select(publicKeySelector)).subscribe(async (publicKey) => {
+      if (publicKey) {
+        this.store.dispatch(startNewGameAction({ publicKey }));
+      } else {
+        const alert = await this.alertController.create({
+          header: 'No Wallet!',
+          subHeader: 'Wallet Not Connected',
+          message: 'Are you sure you want to play without a wallet? Connect a wallet to win tokens and NFTs.',
+          buttons: [
+            {
+              text: 'Cancel',
+              role: 'cancel',
+              handler: () => {
+                
+              },
+            },
+            {
+              text: 'Yes, Play Without Wallet',
+              role: 'confirm',
+              handler: () => {
+                this.store.dispatch(startNewGameAction({ publicKey }));
+              },
+            },
+          ]
+        });
+    
+        await alert.present();
+      }
+    });
   }
 
   initializeValues() {

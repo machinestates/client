@@ -8,7 +8,8 @@ import { TradeErrorInterface } from "src/app/types/trade/trade-error.interface";
  * START NEW GAME
  */
 export const startNewGameAction = createAction(
-  ActionTypes.START_NEW_GAME
+  ActionTypes.START_NEW_GAME,
+  props<{ publicKey: string }>()
 );
 
 export const startNewGameSuccessAction = createAction(

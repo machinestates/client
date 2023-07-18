@@ -17,8 +17,8 @@ export class StartNewGameEffect {
   startNewGame$ = createEffect(() =>
     this.actions$.pipe(
       ofType(startNewGameAction),
-      switchMap(() => {
-        return this.gameService.start().pipe(
+      switchMap(({ publicKey }) => {
+        return this.gameService.start(publicKey).pipe(
           map((game: GameInterface) => {
             this.smartAudioService.play('start');
             return startNewGameSuccessAction({ game })
