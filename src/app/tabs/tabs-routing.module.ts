@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('../inventory/inventory.module').then(m => m.InventoryPageModule)
       },
       {
+        path: 'avatar',
+        loadChildren: () => import('../avatar/avatar.module').then(m => m.AvatarPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/trade',
         pathMatch: 'full'

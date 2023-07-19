@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Avatar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid *ngIf="!imageToUpload">
+    <ion-row *ngIf="!(avatar$ | async)">
+      <ion-col class="ion-text-center">
+        <p>No avatar image found. Upload one now!</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <img [src]="avatar$ | async">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <image-cropper
+    *ngIf="imageChangedEvent && !cropHidden"
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="1 / 1"
+    format="png"
+    [resizeToWidth]="1200"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()"
+    [backgroundColor]="'#a3a3a8'"
+></image-cropper>
+
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <input type="file" hidden (change)="fileChangeEvent($event)" id="file-input" accept="image/*">
+
+        <ion-grid class="ion-text-center">
+          <ion-row>
+            <ion-col>
+              <ion-button color="secondary" (click)="openFileDialog()">
+                <ion-label>Choose Image</ion-label>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="primary" [disabled]="!imageToUpload">
+                <ion-label>Upload</ion-label>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="danger" (click)="cancel()">
+                <ion-label>Cancel</ion-label>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

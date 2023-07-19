@@ -38,4 +38,9 @@ export const currentUsernameSelector = createSelector(
   (authState: AuthStateInterface) => authState.currentUser?.username
 );
 
+export const avatarSelector = createSelector(
+  authFeatureSelector,
+  (authState: AuthStateInterface) => authState.currentUser?.avatar
+);
+
 
