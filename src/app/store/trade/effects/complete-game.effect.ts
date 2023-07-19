@@ -68,6 +68,9 @@ export class CompleteGameEffect {
           componentProps: {
             story: state.game.story,
             coins: state.game.minted ? state.game.coins : [],
+            minted: state.game.minted,
+            storyAudio: state.game.storyAudio,
+            score: state.game.score
           }
         });
         await modal.present();

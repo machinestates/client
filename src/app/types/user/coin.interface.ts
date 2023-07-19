@@ -8,4 +8,5 @@ export interface CoinInterface {
   amount: number;
   createdAt: string;
   updatedAt: string;
+  transaction?: string;
 }

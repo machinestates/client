@@ -1,0 +1,32 @@
+<ion-grid>
+  
+  <!-- NO COINS -->
+  <ion-row *ngIf="!coins.length">
+    <ion-col>
+      <p>You did not win any tokens this round.</p>
+      <p>Score $100,000 or greater and keep tokens in your inventory in order to win them.</p>
+    </ion-col>
+  </ion-row>
+  <!-- END: NO COINS -->
+  <!-- COINS -->
+  <ion-row *ngIf="coins.length && minted">
+    <ion-col>
+      <h2>You won tokens!</h2>
+      <ion-list>
+        <ion-item *ngFor="let coin of coins">
+          <ion-avatar slot="start">
+            <img [src]="coin.image" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ coin.name }}</h2>
+            <p>{{ coin.amount }}</p>
+            <p *ngIf="coin.transaction" class="ion-text-wrap">
+              Tx: <a href="https://solscan.io/tx/{{ coin.transaction }}" target="_blank">{{ coin.transaction }}</a>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+  <!-- END: COINS -->
+</ion-grid>

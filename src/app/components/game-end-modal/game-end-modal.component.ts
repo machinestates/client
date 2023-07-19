@@ -11,6 +11,8 @@ export class GameEndModalComponent  implements OnInit {
 
   @Input() story: string;
   @Input() coins: CoinInterface[];
+  @Input() storyAudio: string;
+  @Input() minted: boolean;
 
   viewType: string = 'tokens';
 

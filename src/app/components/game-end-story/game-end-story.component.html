@@ -1,0 +1,15 @@
+<ion-grid>
+  <ion-row>
+    <ion-col style="padding-bottom: 3em;">
+      <span style="vertical-align: middle;">Play the audio: </span>
+      <ion-icon style="vertical-align: middle;" name="stop" (click)="stop()" *ngIf="playing"></ion-icon>
+      <ion-icon style="vertical-align: middle;" name="play" (click)="play()" *ngIf="!playing"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <div>
+      <ion-col class="story" [innerHTML]="story">
+      </ion-col>
+    </div>
+  </ion-row>
+</ion-grid>
