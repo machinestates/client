@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ScoreInterface } from 'src/app/types/trade/score.interface';
 import { GameStoryModalComponent } from '../game-story-modal/game-story-modal.component';
+import { ProfileModalComponent } from '../profile-modal/profile-modal.component';
 
 
 @Component({
@@ -33,6 +34,16 @@ export class ScoreItemComponent implements OnInit {
   stop() {
     this.playing = false;
     this.audio.pause();
+  }
+
+  async openProfile() {
+    const modal = await this.modalController.create({
+      component: ProfileModalComponent,
+      componentProps: {
+        handle: this.score.handle
+      }
+    });
+    await modal.present();
   }
 
   async read() {

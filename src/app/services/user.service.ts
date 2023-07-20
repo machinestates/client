@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { ItemResponseInterface } from '../types/user/item-response.interface';
 import { CoinResponseInterface } from '../types/user/coin-response.interface';
+import { UserProfileInterface } from '../types/user/user-profile.interface';
+import { ProfileResponseInterface } from '../types/user/profile-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +41,13 @@ export class UserService {
     const url = environment.apiUrl + '/users/me/items/' + item.uuid;
     return this.http.put<ItemResponseInterface>(url, { equipped: false }).pipe(
       map(response => response.items)
+    )
+  }
+
+  getProfile(handle: string): Observable<UserProfileInterface> {
+    const url = environment.apiUrl + '/users/profiles/' + handle;
+    return this.http.get<ProfileResponseInterface>(url).pipe(
+      map(response => response.profile)
     )
   }
 }

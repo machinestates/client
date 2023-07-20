@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { ScoresComponent } from './scores.component';
 import { ScoreItemModule } from '../score-item/score-item.module';
 import { FormsModule } from '@angular/forms';
+import { ProfileModalModule } from '../profile-modal/profile-modal.module';
 
 @NgModule({
   declarations: [ScoresComponent],
@@ -11,7 +12,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     IonicModule,
     ScoreItemModule,
-    FormsModule
+    FormsModule,
+    ProfileModalModule
   ],
   exports: [ScoresComponent]
 })

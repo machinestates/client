@@ -1,0 +1,32 @@
+<div class="ion-page">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>@{{ handle.toLowerCase() }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen *ngIf="user">
+    <ion-card>
+      <img src="https://res.cloudinary.com/dn2kx9w9f/image/upload/v1689859367/munsucsnrhctd3p4uibe.png"/>
+      <ion-card-header>
+        <ion-card-title>@{{ user.profile.username }}</ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+        <p>Total earnings: {{ user.totalEarnings | currency:'USD':'symbol':'1.0-0' }}
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list *ngIf="user.rounds">
+      <div class="ion-text-center" *ngIf="!user.rounds.length">
+        <p>No scores yet.</p>
+      </div>
+      <app-score-item [score]="score" *ngFor="let score of user.rounds"></app-score-item>
+    </ion-list>
+  </ion-content>
+
+  <ion-footer>
+    <ion-button expand="full" (click)="close()">Close</ion-button>
+  </ion-footer>
+</div>
