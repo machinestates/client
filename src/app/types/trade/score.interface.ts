@@ -4,4 +4,5 @@ export interface ScoreInterface {
   avatar: string;
   story: string;
   storyAudio: string;
+  profileImage: number | null;
 }
