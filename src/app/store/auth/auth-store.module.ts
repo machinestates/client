@@ -7,13 +7,20 @@ import { reducers } from './reducers';
 import { SigninEffect } from './effects/signin.effect';
 import { GetCurrentUserEffect } from './effects/get-current-user.effect';
 import { SignoutEffect } from './effects/signout.effect';
+import { UploadAvatarImageEffect } from './effects/upload-avatar-image.effect';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    EffectsModule.forFeature([SignupEffect, SigninEffect, GetCurrentUserEffect, SignoutEffect]),
+    EffectsModule.forFeature([
+      SignupEffect, 
+      SigninEffect, 
+      GetCurrentUserEffect, 
+      SignoutEffect, 
+      UploadAvatarImageEffect
+    ]),
     StoreModule.forFeature('auth', reducers)
   ]
 })

@@ -12,9 +12,9 @@
         <p>No avatar image found. Upload one now!</p>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col>
-        <img [src]="avatar$ | async">
+    <ion-row style="padding-top: 2em;">
+      <ion-col class="ion-text-center">
+        <img class="avatar" style="height: auto;" [src]="avatar$ | async" />
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -49,7 +49,7 @@
               </ion-button>
             </ion-col>
             <ion-col>
-              <ion-button color="primary" [disabled]="!imageToUpload">
+              <ion-button color="primary" [disabled]="!imageToUpload" (click)="upload()">
                 <ion-label>Upload</ion-label>
               </ion-button>
             </ion-col>

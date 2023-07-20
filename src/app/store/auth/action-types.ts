@@ -11,5 +11,9 @@ export enum ActionTypes {
   GET_CURRENT_USER_SUCCESS = '[Auth] Get Current User Success',
   GET_CURRENT_USER_FAILURE = '[Auth] Get Current User Failure',
 
+  UPLOAD_AVATAR_IMAGE = '[Auth] Upload Avatar Image',
+  UPLOAD_AVATAR_IMAGE_SUCCESS = '[Auth] Upload Avatar Image Success',
+  UPLOAD_AVATAR_IMAGE_FAILURE = '[Auth] Upload Avatar Image Failure',
+
   SIGNOUT = '[Auth] Signout'
 }

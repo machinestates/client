@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { avatarSelector } from '../store/auth/selectors';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
+import { uploadAvatarImageAction } from '../store/auth/actions/upload-avatar-image.action';
 
 @Component({
   selector: 'app-avatar',
@@ -15,10 +16,9 @@ export class AvatarPage implements OnInit {
   imageChangedEvent: any = '';
   croppedImage: any = '';
   imageToUpload: string = '';
-
   cropHidden: boolean = true;
 
-  constructor(private store: Store, private sanitizer: DomSanitizer) { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
     this.initializeValues();
@@ -26,21 +26,32 @@ export class AvatarPage implements OnInit {
 
   initializeValues() {
     this.avatar$ = this.store.pipe(select(avatarSelector));
+    this.store.pipe(select(avatarSelector)).subscribe((avatar) => {
+      console.log(avatar);
+      if (avatar) {
+        this.imageToUpload = '';
+        this.cropHidden = true;
+      }
+    });
   }
 
   cancel() {
     this.imageToUpload = '';
     this.cropHidden = true;
-    (document as any).getElementById("file-input").value = null;
+    (document as any).getElementById('file-input').value = null;
   }
 
   openFileDialog() {
-    (document as any).getElementById("file-input").click();
+    (document as any).getElementById('file-input').click();
   }
 
   fileChangeEvent(event: any): void {
     this.cropHidden = false;
     this.imageChangedEvent = event;
+  }
+  
+  upload() {
+    this.store.dispatch(uploadAvatarImageAction({ image: this.imageToUpload }));
   }
   
   imageCropped(event: ImageCroppedEvent) {

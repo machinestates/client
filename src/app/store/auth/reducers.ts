@@ -3,6 +3,7 @@ import { AuthStateInterface } from "src/app/types/auth/auth-state.interface";
 import { signupAction, signupFailureAction, signupSuccessAction } from "./actions/signup.action";
 import { signinAction, signinFailureAction, signinSuccessAction } from "./actions/signin.action";
 import { getCurrentUserAction, getCurrentUserFailureAction, getCurrentUserSuccessAction } from "./actions/get-current-user.action";
+import { uploadAvatarImageAction, uploadAvatarImageFailureAction, uploadAvatarImageSuccessAction } from "./actions/upload-avatar-image.action";
 
 const initialState: AuthStateInterface = {
   isSubmitting: false,
@@ -87,6 +88,31 @@ const authReducer = createReducer(
       isLoading: false,
       isLoggedIn: false,
       currentUser: null
+    })
+  ),
+  on(
+    uploadAvatarImageAction,
+    (state): AuthStateInterface => ({
+      ...state,
+      isLoading: true
+    })
+  ),
+  on(
+    uploadAvatarImageSuccessAction,
+    (state, action): AuthStateInterface => ({
+      ...state,
+      isLoading: false,
+      currentUser: {
+        ...state.currentUser,
+        avatar: action.avatar
+      }
+    })
+  ),
+  on(
+    uploadAvatarImageFailureAction,
+    (state): AuthStateInterface => ({
+      ...state,
+      isLoading: false,
     })
   )
 );
