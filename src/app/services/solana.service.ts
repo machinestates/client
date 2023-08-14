@@ -1,13 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, map } from 'rxjs';
+
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SolanaService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  
+  getTokens(wallet: string, type = 'nft'): Observable<any> {
+    const url = environment.apiUrl + '/tokens?wallet=' + wallet + '&type=' + type;
+    return this.http.get(url);
+  }
 
   async connectPhantomWallet(): Promise<string | boolean> {
     if ('phantom' in window) {

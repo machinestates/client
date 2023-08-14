@@ -6,6 +6,8 @@ import { catchError, from, map, of, switchMap, tap } from "rxjs";
 import { SolanaService } from "src/app/services/solana.service";
 import { connectPhantomWalletAction, connectPhantomWalletFailureAction, connectPhantomWalletSuccessAction } from "../actions/connect-phantom-wallet.action";
 import { AlertController, ToastController } from "@ionic/angular";
+import { setPublicKeyAction } from "../../trade/actions/set-public-key.action";
+import { Store } from "@ngrx/store";
 
 @Injectable()
 export class ConnectPhantomWalletEffect {
@@ -17,6 +19,7 @@ export class ConnectPhantomWalletEffect {
 
         return from(this.solanaService.connectPhantomWallet()).pipe(
           map((publicKey: string) => {
+            this.store.dispatch(setPublicKeyAction({publicKey}));
             return connectPhantomWalletSuccessAction({publicKey})
           }),
 
@@ -60,6 +63,7 @@ export class ConnectPhantomWalletEffect {
     private actions$: Actions,
     private solanaService: SolanaService,
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private store: Store
   ) {}
 }

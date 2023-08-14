@@ -40,7 +40,9 @@ export class ScoreItemComponent implements OnInit {
     const modal = await this.modalController.create({
       component: ProfileModalComponent,
       componentProps: {
-        handle: this.score.handle
+        handle: this.score.handle,
+        avatar: this.score.profileImage,
+        score: this.score.score
       }
     });
     await modal.present();

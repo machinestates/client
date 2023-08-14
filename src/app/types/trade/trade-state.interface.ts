@@ -1,3 +1,4 @@
+import { AvatarInterface } from "./avatar.interface";
 import { GameInterface } from "./game.interface";
 import { ScoresInterface } from "./scores.interface";
 import { TradeErrorInterface } from "./trade-error.interface";
@@ -10,4 +11,6 @@ export interface TradeStateInterface {
   isLoading: boolean;
   actionPending: boolean;
   game: GameInterface | null;
+  avatar: AvatarInterface | null;
+  publicKey: string | null;
 }

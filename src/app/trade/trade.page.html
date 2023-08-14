@@ -8,7 +8,7 @@
 
 <app-alert class="sticky-top"></app-alert>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true">
 
   <!-- High scores -->
   <app-scores *ngIf="!(inProgress$ | async)"></app-scores>
@@ -16,7 +16,7 @@
 
   <!-- Game Interface -->
   <ng-container *ngIf="inProgress$ | async">
-    <app-game-score [currentGame]="game$ | async"></app-game-score>
+    <app-game-score [currentGame]="game$ | async" [avatar]="avatar"></app-game-score>
     <app-game-debt [currentGame]="game$ | async" *ngIf="(game$ | async)?.exchange?.hasLoan"></app-game-debt>
     <app-game-exchange [currentGame]="game$ | async"></app-game-exchange>
   </ng-container>

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { avatarSelector } from '../store/auth/selectors';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 import { uploadAvatarImageAction } from '../store/auth/actions/upload-avatar-image.action';
 
@@ -17,6 +16,7 @@ export class AvatarPage implements OnInit {
   croppedImage: any = '';
   imageToUpload: string = '';
   cropHidden: boolean = true;
+  viewType = 'nfts';
 
   constructor(private store: Store) { }
 
@@ -27,7 +27,6 @@ export class AvatarPage implements OnInit {
   initializeValues() {
     this.avatar$ = this.store.pipe(select(avatarSelector));
     this.store.pipe(select(avatarSelector)).subscribe((avatar) => {
-      console.log(avatar);
       if (avatar) {
         this.imageToUpload = '';
         this.cropHidden = true;

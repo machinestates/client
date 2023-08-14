@@ -3,6 +3,9 @@
     <ion-col>
       <h4 
         class="exchange-name">
+        <ion-thumbnail style="display: inline-block; vertical-align: middle;">
+          <img [src]="avatar?.image" />
+        </ion-thumbnail> 
         <span 
           [popper]="getExchangeDescription(currentGame?.exchange)" 
           [popperPlacement]="placement"

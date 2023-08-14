@@ -9,7 +9,7 @@ import { TradeErrorInterface } from "src/app/types/trade/trade-error.interface";
  */
 export const startNewGameAction = createAction(
   ActionTypes.START_NEW_GAME,
-  props<{ publicKey: string }>()
+  props<{ publicKey: string; name: string; image: string; }>()
 );
 
 export const startNewGameSuccessAction = createAction(

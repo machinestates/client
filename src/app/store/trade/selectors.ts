@@ -32,3 +32,18 @@ export const actionPendingSelector = createSelector(
   tradeFeatureSelector,
   (tradeState: TradeStateInterface) => tradeState.actionPending
 );
+
+export const avatarImageSelector = createSelector(
+  tradeFeatureSelector,
+  (tradeState: TradeStateInterface) => tradeState.avatar.image
+);
+
+export const publicKeySelector = createSelector(
+  tradeFeatureSelector,
+  (tradeState: TradeStateInterface) => tradeState.publicKey
+);
+
+export const tradeStateSelector = createSelector(
+  tradeFeatureSelector,
+  (tradeState: TradeStateInterface) => tradeState
+);

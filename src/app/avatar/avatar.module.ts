@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { AvatarPageRoutingModule } from './avatar-routing.module';
 
 import { AvatarPage } from './avatar.page';
+import { AvatarNftsModule } from '../components/avatar-nfts/avatar-nfts.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { AvatarPage } from './avatar.page';
     FormsModule,
     IonicModule,
     AvatarPageRoutingModule,
-    ImageCropperModule
+    ImageCropperModule,
+    AvatarNftsModule,
   ],
   declarations: [AvatarPage]
 })

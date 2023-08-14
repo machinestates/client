@@ -10,6 +10,8 @@ import { buyCoinAction, buyCoinFailureAction, buyCoinSuccessAction } from "./act
 import { borrowAction, borrowFailureAction, borrowSuccessAction } from "./actions/borrow.action";
 import { completeGameAction, completeGameFailureAction, completeGameSuccessAction } from "./actions/complete-game.action";
 import { useItemAction, useItemFailureAction, useItemSuccessAction } from "./actions/use-item.action";
+import { setAvatarAction } from "./actions/set-avatar.action";
+import { setPublicKeyAction } from "./actions/set-public-key.action";
 
 const initialState: TradeStateInterface = {
   isSubmitting: false,
@@ -18,7 +20,12 @@ const initialState: TradeStateInterface = {
   error: null,
   scores: null,
   game: null,
-  actionPending: false
+  actionPending: false,
+  publicKey: null,
+  avatar: {
+    image: null,
+    name: null
+  }
 }
 
 const tradeReducer = createReducer(
@@ -261,7 +268,21 @@ const tradeReducer = createReducer(
       actionPending: false,
       error: action.error
     })
-  )
+  ),
+  on(
+    setAvatarAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      avatar: action.avatar
+    })
+  ),
+  on(
+    setPublicKeyAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      publicKey: action.publicKey
+    })
+  ),
 );
 
 export function reducers(state: TradeStateInterface, action: Action) {

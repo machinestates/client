@@ -4,6 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
 import { ConnectPhantomWalletEffect } from './effects/connect-phantom-wallet.effect';
+import { GetNftsEffect } from './effects/get-nfts.effect';
 
 
 
@@ -13,7 +14,8 @@ import { ConnectPhantomWalletEffect } from './effects/connect-phantom-wallet.eff
   imports: [
     CommonModule,
     EffectsModule.forFeature([
-      ConnectPhantomWalletEffect
+      ConnectPhantomWalletEffect,
+      GetNftsEffect
     ]),
     StoreModule.forFeature('solana', reducers)
   ]

@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../services/game.service';
 import { Store, select } from '@ngrx/store';
 import { startNewGameAction } from '../store/trade/actions/start-new-game.action';
-import { gameSelector, inProgressSelector } from '../store/trade/selectors';
+import { gameSelector, inProgressSelector, tradeStateSelector } from '../store/trade/selectors';
 import { Observable } from 'rxjs';
 import { GameInterface } from '../types/trade/game.interface';
 import { SmartAudioService } from '../services/smart-audio.service';
 import { publicKeySelector } from '../store/solana/selectors';
 import { AlertController } from '@ionic/angular';
+import { AvatarInterface } from '../types/trade/avatar.interface';
 
 @Component({
   selector: 'app-trade',
@@ -20,6 +21,9 @@ export class TradePage implements OnInit {
   inProgress$: Observable<boolean>;
   completed$: Observable<boolean>;
 
+  publicKey: string | null;
+  avatar: AvatarInterface | null;
+
   constructor(
     private store: Store, 
     private smartAudioService: SmartAudioService, 
@@ -28,39 +32,38 @@ export class TradePage implements OnInit {
 
   ngOnInit() {
     this.initializeValues();
+    this.store.pipe(select(tradeStateSelector)).subscribe((trade) => {
+      this.publicKey = trade.publicKey;
+      this.avatar = trade.avatar;
+    });
   }
 
   async start() {
-    // Check if there's a Solana public key:
-    this.store.pipe(select(publicKeySelector)).subscribe(async (publicKey) => {
-      if (publicKey) {
-        this.store.dispatch(startNewGameAction({ publicKey }));
+    // Check if there's a public key set:
+    if (this.publicKey) {
+      if (this.avatar.image) {
+        this.store.dispatch(startNewGameAction({ publicKey: this.publicKey, name: this.avatar.name, image: this.avatar.image }));
       } else {
         const alert = await this.alertController.create({
-          header: 'No Wallet!',
-          subHeader: 'Wallet Not Connected',
-          message: 'Are you sure you want to play without a wallet? Connect a wallet to win tokens and NFTs.',
-          buttons: [
-            {
-              text: 'Cancel',
-              role: 'cancel',
-              handler: () => {
-                
-              },
-            },
-            {
-              text: 'Yes, Play Without Wallet',
-              role: 'confirm',
-              handler: () => {
-                this.store.dispatch(startNewGameAction({ publicKey }));
-              },
-            },
-          ]
+          header: 'No Avatar!',
+          subHeader: 'Avatar Not Set',
+          message: 'Set your avatar to win tokens and NFTs.',
+          buttons: ['OK']
         });
     
         await alert.present();
       }
-    });
+    } else {
+      const alert = await this.alertController.create({
+        header: 'No Wallet!',
+        subHeader: 'Wallet Not Connected',
+        message: 'Connect your Phantom wallet to win tokens and NFTs.',
+        buttons: ['OK']
+      });
+  
+      await alert.present();
+    }
+
   }
 
   initializeValues() {

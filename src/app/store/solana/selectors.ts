@@ -13,4 +13,7 @@ export const publicKeySelector = createSelector(
   (solanaState: SolanaStateInterface) => solanaState.publicKey
 );
 
-
+export const nftsSelector = createSelector(
+  solanaFeatureSelector,
+  (solanaState: SolanaStateInterface) => solanaState.nfts
+);

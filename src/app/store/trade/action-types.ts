@@ -34,4 +34,7 @@ export enum ActionTypes {
   USE_ITEM = '[Trade] Use Item',
   USE_ITEM_SUCCESS = '[Trade] Use Item Success',
   USE_ITEM_FAILURE = '[Trade] Use Item Failure',
+
+  SET_AVATAR = '[Trade] Set Avatar',
+  SET_PUBLIC_KEY = '[Trade] Set Public Key',
 }
