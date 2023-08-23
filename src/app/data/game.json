@@ -65,40 +65,45 @@
     {
       "name": "SPECTR",
       "uuid": "1949a388-5ad8-4e89-8309-747ae709b8db",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-spectr-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/spectr-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/spectr-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/spectr-icon-250.png",
+      "color": "#ffe56c",
       "description": "Little is known about SPECTR. Their buildings have no windows, and they have no public relations. They are essentially a giant factory to build robot workers. The robot works do most of the repetitive tasks in MEGACITY, and co-function as debt collectors for PLASMANET.",
       "shortDescription": "Little is known about SPECTR. Their buildings have no windows, and they have no public relations."
     },
     {
       "name": "HASHCOIN",
       "uuid": "41f97144-79dd-4a6b-820e-3788b209b805",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-hashcoin-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/hashcoin-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/hashcoin-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/hashcoin-icon-250.png",
       "description": "The gold standard of MEGACITY. HASHCOIN was created by the mysterious KIKAI HASHIMOTO. It was the very first cryptocurrency. The legendary nature of the coin and its limited supply means that the price of HASHCOIN is always high, and sometimes it sky-rockets. The rich all measure wealth in HASHCOIN - especially rare HASHCOIN. It is said that about 80% of energy consumption of the MEGACITY goes to mining it.",
-      "shortDescription": "The gold standard of MEGACITY. HASHCOIN was created by the mysterious KIKAI HASHIMOTO."
+      "shortDescription": "The gold standard of MEGACITY. HASHCOIN was created by the mysterious KIKAI HASHIMOTO.",
+      "color": "#754dff"
     },
     {
       "name": "KAIOTE",
       "uuid": "19f7e26d-3a95-4e25-bea6-3d34cab8d804",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-kaiote-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/kaiote-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/kaiote-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/kaiote-icon-250.png",
+      "color": "#03ffef",
       "description": "The first KAIOTE prototypes were created by a student in a tech school dorm. The company was later acquired by PORT 23. KAIOTE is an AI business with humanoid and animal-based robots who work tasks through MEGACITY.",
       "shortDescription": "KAIOTE is an AI business with humanoid and animal-based robots who work tasks through MEGACITY."
     },
     {
       "name": "QTAP",
       "uuid": "645480d6-74a1-4b26-8cc7-4c1e0f446860",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-qtap-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/qtap-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/qtap-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/qtap-icon-250.png",
+      "color": "#b01f24",
       "description": "QTAP was rumored to have started as an decentralized underground spy network in the FIRST TECH WAR. It was composed of multiple defectors from agencies around the globe. It was incorporated as a business during the GREAT RESET. QTAP has large surveillance apparatus throughout MEGACITY, and their technology can even be found in food and drugs.",
       "shortDescription": "QTAP was rumored to have started as an decentralized underground spy network in the FIRST TECH WAR."
     },
     {
       "name": "CACHE",
       "uuid": "c50e6f9c-d8ad-4b81-93ac-db65b162a7f3",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-cache-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/cache-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/cache-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/cache-icon-250.png",
+      "color": "#95f6be",
       "description": "Many believe CACHE to be created by the legendary KIKAI HASHIMOTO as their second project. CACHE as a technology allows poor TENT CITY dwellers to collect a large amount of base tokens for their work.",
       "shortDescription": "Many believe CACHE to be created by the legendary KIKAI HASHIMOTO as their second project."
     },
@@ -121,8 +126,9 @@
     {
       "name": "HYPRCHAIN",
       "uuid": "fd8631ec-39de-4afe-8c25-453d835476b2",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-hyprchain-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/hyprchain-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/hyprchain-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/hyprchain-icon-250.png",
+      "color": "#fbff69",
       "description": "HYPRCHAIN was founded by a truly mega-entrepreneur who created the first major online payment gateway as well as a space exploration firm. He later moved his conscience into the GRID and runs his business cybernetically. HYPRCHAIN as a company builds and maintains roads using clean energy, and as a result of privatization they own most of them, earning major toll revenue. They are also the only alternative power company to WI-FU.",
       "shortDescription": "HYPRCHAIN was founded by a truly mega-entrepreneur who created the first major online payment gateway as well as a space exploration firm."
     },
@@ -143,10 +149,11 @@
       "shortDescription": "Hackers, who left the world's best tech jobs, fled to hidden residences and built a decentralized mega-network."
     },
     {
-      "name": "PSYONIC",
+      "name": "FEDCRED",
       "uuid": "7827932a-0c66-4331-82f9-6b77b41e10a7",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-psyonic-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/psyonic-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/fedcred-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/fedcred-icon-250.png",
+      "color": "#adc961",
       "description": "Some time ago the R&D department of a major drug factory made a wetware tech breakthrough. After research was blocked due to regulation, they formed an underground lab that is funded by PORT 23. They make embedded payment gateways, brain interfaces and cybernetic body parts and beings.",
       "shortDescription": "Some time ago the R&D department of a major drug factory made a wetware tech breakthrough."
     },
@@ -157,7 +164,7 @@
       "iconImage": "https://machinestates.s3.amazonaws.com/m-synchro-512.png",
       "description": "Massive Sychronization (M-SYNCHRO) is a decentralized network of machines that are used to process data.",
       "shortDescription": "Massive Sychronization (M-SYNCHRO) is a decentralized network of machines that are used to process data.",
-      "color": "#926734"
+      "color": "#592c1c"
     }
   ]
 }

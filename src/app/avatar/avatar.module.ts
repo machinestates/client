@@ -9,6 +9,7 @@ import { AvatarPageRoutingModule } from './avatar-routing.module';
 
 import { AvatarPage } from './avatar.page';
 import { AvatarNftsModule } from '../components/avatar-nfts/avatar-nfts.module';
+import { AvatarCreateModule } from '../components/avatar-create/avatar-create.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { AvatarNftsModule } from '../components/avatar-nfts/avatar-nfts.module';
     AvatarPageRoutingModule,
     ImageCropperModule,
     AvatarNftsModule,
+    AvatarCreateModule
   ],
   declarations: [AvatarPage]
 })

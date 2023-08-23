@@ -1,0 +1,67 @@
+<ion-grid>
+  
+  <ion-row *ngIf="!wallet && !(mintedNft$ | async)">
+    <ion-col class="ion-text-center">
+      <p>Connect your wallet to create an NFT.</p>
+    </ion-col>
+  </ion-row>
+  
+  <ion-row *ngIf="!(mintedNft$ | async) && wallet">
+    <ion-col class="ion-text-center">
+      <p>No NFT avatar found. Create one now.</p>
+    </ion-col>
+  </ion-row>
+  
+  <ion-row style="padding-top: 2em;" *ngIf="mintedNft$ | async">
+    <ion-col class="ion-text-center">
+      <img class="avatar" style="height: auto;" [src]="(mintedNft$ | async).image" />
+      <p>Created {{ (mintedNft$ | async).createdAt | amTimeAgo }}</p>
+    </ion-col>
+  </ion-row>
+
+
+</ion-grid>
+
+<image-cropper
+  *ngIf="imageChangedEvent && !cropHidden && !(mintedNft$ | async)"
+  [imageChangedEvent]="imageChangedEvent"
+  [maintainAspectRatio]="true"
+  [aspectRatio]="1 / 1"
+  format="png"
+  [resizeToWidth]="1200"
+  (imageCropped)="imageCropped($event)"
+  (imageLoaded)="imageLoaded()"
+  (cropperReady)="cropperReady()"
+  (loadImageFailed)="loadImageFailed()"
+  [backgroundColor]="'#a3a3a8'"
+></image-cropper>
+
+<ion-footer *ngIf="!(mintedNft$ | async) && wallet">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <input type="file" hidden (change)="fileChangeEvent($event)" id="file-input" accept="image/*">
+
+        <ion-grid class="ion-text-center">
+          <ion-row>
+            <ion-col>
+              <ion-button color="secondary" (click)="openFileDialog()">
+                <ion-label>Choose Image</ion-label>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="primary" [disabled]="!imageToUpload || !wallet" (click)="create()">
+                <ion-label>Create</ion-label>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button color="danger" (click)="cancel()" [disabled]="!imageToUpload">
+                <ion-label>Cancel</ion-label>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

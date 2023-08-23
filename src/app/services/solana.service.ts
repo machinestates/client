@@ -16,6 +16,16 @@ export class SolanaService {
     return this.http.get(url);
   }
 
+  createUserNft(wallet: string, image: string): Observable<any> {
+    const url = environment.apiUrl + '/tokens/nft';
+    return this.http.post(url, { wallet, image });
+  }
+
+  getMintedNft(): Observable<any> {
+    const url = environment.apiUrl + '/tokens/nft';
+    return this.http.get(url);
+  }
+
   async connectPhantomWallet(): Promise<string | boolean> {
     if ('phantom' in window) {
       const provider = (window as any).phantom?.solana;

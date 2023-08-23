@@ -17,3 +17,8 @@ export const nftsSelector = createSelector(
   solanaFeatureSelector,
   (solanaState: SolanaStateInterface) => solanaState.nfts
 );
+
+export const mintedNftSelector = createSelector(
+  solanaFeatureSelector,
+  (solanaState: SolanaStateInterface) => solanaState.mintedNft
+);
