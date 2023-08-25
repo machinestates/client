@@ -36,14 +36,14 @@ export class ConnectPhantomWalletEffect {
       ofType(connectPhantomWalletSuccessAction),
       tap(async (state) => {
         // Alert user of success:
-        const alert = await this.alertController.create({
+        /**const alert = await this.alertController.create({
           header: 'Success',
           subHeader: 'Connected to Phantom Wallet',
           message: state.publicKey,
           buttons: ['OK'],
         });
     
-        await alert.present();
+        await alert.present();**/
       })
     ),
     { dispatch: false }

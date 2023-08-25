@@ -6,6 +6,12 @@
   display: inline-block;
 }
 
+.coin-name {
+  background-color: #000;
+  font-size: 10px;
+  padding: 4px;
+}
+
 .form-inline {
   display: grid;
   justify-content: center;
@@ -72,7 +78,7 @@ input {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  padding: 8.5px 3px 8.5px 4px;
+  padding: 6.5px 3px 6.5px 1px;
   line-height: 19px;
   border-top: 2px solid #bbbbbb;
 }

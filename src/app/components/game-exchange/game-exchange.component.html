@@ -16,7 +16,7 @@
         <img [src]="coin.iconImage" class="dot" [popper]="getCoinDescription(coin)" [popperPlacement]="placement" />
       </td>
       <td>
-        <span [popper]="getCoinDescription(coin)" [popperPlacement]="placement" [ngStyle]="{'color': coin.color }">
+        <span class="coin-name" [popper]="getCoinDescription(coin)" [popperPlacement]="placement" [ngStyle]="{'color': coin.color }">
           {{ coin.name.toUpperCase() }}
         </span>
       </td>

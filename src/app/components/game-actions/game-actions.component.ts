@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { GameInterface } from 'src/app/types/trade/game.interface';
 import { GameTravelModalComponent } from '../game-travel-modal/game-travel-modal.component';
@@ -13,10 +13,15 @@ import { GameInventoryModalComponent } from '../game-inventory-modal/game-invent
   styleUrls: ['./game-actions.component.scss'],
 })
 export class GameActionsComponent implements OnInit {
+  @HostListener('window:beforeunload', ['$event'])
+  beforeunloadHandler(event) {
+    return false;
+  }
 
   @Input() currentGame: GameInterface;
 
   constructor(private modalController: ModalController, private store: Store) { }
+
 
   ngOnInit() {}
 
