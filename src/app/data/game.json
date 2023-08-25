@@ -110,16 +110,18 @@
     {
       "name": "YEM",
       "uuid": "ddbb61af-f13f-4a30-96e4-3b15ad1b5643",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-yem-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/yem-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/yem-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/yem-icon-250.png",
+      "color": "#e550ff",
       "description": "YEM, short for Your Entertainment Machine, began when the five major media firms were losing control of sales. They organized and teamed up with technologists to effectively tokenize all media. They now represent the vast majority of MEGACITY celebrities - as well as the sporting champions of VEGA CITY.",
       "shortDescription": "YEM, short for Your Entertainment Machine, began when the five major media firms were losing control of sales."
     },
     {
       "name": "SYNTHGANIX",
       "uuid": "670f3205-14b0-483b-b121-4fa66ed1dd9d",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-synthganix-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/synthganix-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/synthganix-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/synthganix-icon-250.png",
+      "color": "#f16a41",
       "description": "The big pharmaceutical giants pivoted into generating synthetic foods. Though SYNTHGANIX claims they sell 'organic' foods in their marketing, the vast majority of their foods are artificial. They also happen to be the main funder of UNIT COLONY.",
       "shortDescription": "The big pharmaceutical giants pivoted into generating synthetic foods."
     },
@@ -135,16 +137,18 @@
     {
       "name": "PLATELETS",
       "uuid": "f9699fd2-af56-48eb-83f4-4c4fdf73c5b3",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-platelets-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/platelets-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/platelets-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/platelets-icon-250.png",
+      "color": "#c8f700",
       "description": "PLATELETS was created by PSYONIC SYSTEMS as a reserve currency for the re-payment of PLASMADEBT. PLASMANET was not interested in backing debts in FIATCOIN so they invented PLATELETS, which can be embedded in organic systems and monitored 24/7.",
       "shortDescription": "PLATELETS was created by PSYONIC SYSTEMS as a reserve currency for the re-payment of PLASMADEBT."
     },
     {
-      "name": "1337",
+      "name": "WOBBIE",
       "uuid": "174b3e8c-6a8c-47f0-baf4-7c71d026b0d3",
-      "image": "https://megacity-assets.s3.amazonaws.com/coin-1337-600.jpg",
-      "iconImage": "https://megacity-assets.s3.amazonaws.com/1337-token-64.png",
+      "image": "https://machinestates.s3.amazonaws.com/wobbie-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/wobbie-icon-250.png",
+      "color": "#1301de",
       "description": "Hackers, who left the world's best tech jobs, fled to hidden residences and built a decentralized mega-network. 1337 is partially an activist organization devoted to bringing safer conditions to MEGACITY dwellers.",
       "shortDescription": "Hackers, who left the world's best tech jobs, fled to hidden residences and built a decentralized mega-network."
     },
@@ -160,11 +164,11 @@
     {
       "name": "M-SYNCHRO",
       "uuid": "00ceb9bb-ceb2-4b66-82c1-949239cc8f36",
-      "image": "https://machinestates.s3.amazonaws.com/m-synchro-512.png",
-      "iconImage": "https://machinestates.s3.amazonaws.com/m-synchro-512.png",
+      "image": "https://machinestates.s3.amazonaws.com/msynchro-icon-2500.png",
+      "iconImage": "https://machinestates.s3.amazonaws.com/msynchro-icon-250.png",
+      "color": "#592c1c",
       "description": "Massive Sychronization (M-SYNCHRO) is a decentralized network of machines that are used to process data.",
       "shortDescription": "Massive Sychronization (M-SYNCHRO) is a decentralized network of machines that are used to process data.",
-      "color": "#592c1c"
     }
   ]
 }
