@@ -10,7 +10,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "ios": "ionic build --configuration=production && npx cap sync && ionic cap open ios"
+    "ios": "ionic build --configuration=production && npx cap sync && ionic cap open ios",
+    "deploy-web": "ionic build --configuration=production && aws s3 cp ./www s3://trading.machinestates.com --recursive --acl public-read && aws cloudfront create-invalidation --distribution-id=EOFGN5CT0PEAO --paths \"/*\""
   },
   "private": true,
   "dependencies": {

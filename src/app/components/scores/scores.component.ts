@@ -26,5 +26,12 @@ export class ScoresComponent implements OnInit {
 
   initializeValues() {
     this.scores$ = this.store.pipe(select(scoresSelector));
-  } 
+  }
+
+  doRefresh(event) {
+    this.store.dispatch(getScoresAction());
+    this.scores$.subscribe(() => {
+      event.target.complete();
+    });
+  }
 }

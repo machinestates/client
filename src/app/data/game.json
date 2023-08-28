@@ -78,7 +78,7 @@
       "iconImage": "https://machinestates.s3.amazonaws.com/hashcoin-icon-250.png",
       "description": "The gold standard of MEGACITY. HASHCOIN was created by the mysterious KIKAI HASHIMOTO. It was the very first cryptocurrency. The legendary nature of the coin and its limited supply means that the price of HASHCOIN is always high, and sometimes it sky-rockets. The rich all measure wealth in HASHCOIN - especially rare HASHCOIN. It is said that about 80% of energy consumption of the MEGACITY goes to mining it.",
       "shortDescription": "The gold standard of MEGACITY. HASHCOIN was created by the mysterious KIKAI HASHIMOTO.",
-      "color": "#754dff"
+      "color": "#7a58ff"
     },
     {
       "name": "KAIOTE",
@@ -94,7 +94,7 @@
       "uuid": "645480d6-74a1-4b26-8cc7-4c1e0f446860",
       "image": "https://machinestates.s3.amazonaws.com/qtap-icon-2500.png",
       "iconImage": "https://machinestates.s3.amazonaws.com/qtap-icon-250.png",
-      "color": "#b01f24",
+      "color": "#ed242a",
       "description": "QTAP was rumored to have started as an decentralized underground spy network in the FIRST TECH WAR. It was composed of multiple defectors from agencies around the globe. It was incorporated as a business during the GREAT RESET. QTAP has large surveillance apparatus throughout MEGACITY, and their technology can even be found in food and drugs.",
       "shortDescription": "QTAP was rumored to have started as an decentralized underground spy network in the FIRST TECH WAR."
     },
@@ -148,7 +148,7 @@
       "uuid": "174b3e8c-6a8c-47f0-baf4-7c71d026b0d3",
       "image": "https://machinestates.s3.amazonaws.com/wobbie-icon-2500.png",
       "iconImage": "https://machinestates.s3.amazonaws.com/wobbie-icon-250.png",
-      "color": "#1301de",
+      "color": "#8aadf5",
       "description": "Hackers, who left the world's best tech jobs, fled to hidden residences and built a decentralized mega-network. 1337 is partially an activist organization devoted to bringing safer conditions to MEGACITY dwellers.",
       "shortDescription": "Hackers, who left the world's best tech jobs, fled to hidden residences and built a decentralized mega-network."
     },
@@ -166,7 +166,7 @@
       "uuid": "00ceb9bb-ceb2-4b66-82c1-949239cc8f36",
       "image": "https://machinestates.s3.amazonaws.com/msynchro-icon-2500.png",
       "iconImage": "https://machinestates.s3.amazonaws.com/msynchro-icon-250.png",
-      "color": "#592c1c",
+      "color": "#dbbf6b",
       "description": "Massive Sychronization (M-SYNCHRO) is a decentralized network of machines that are used to process data.",
       "shortDescription": "Massive Sychronization (M-SYNCHRO) is a decentralized network of machines that are used to process data."
     }
