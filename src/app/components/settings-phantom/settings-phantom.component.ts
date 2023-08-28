@@ -3,6 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { connectPhantomWalletAction } from 'src/app/store/solana/actions/connect-phantom-wallet.action';
 import { publicKeySelector } from 'src/app/store/solana/selectors';
+import { inProgressSelector } from 'src/app/store/trade/selectors';
 
 @Component({
   selector: 'app-settings-phantom',
@@ -12,6 +13,7 @@ import { publicKeySelector } from 'src/app/store/solana/selectors';
 export class SettingsPhantomComponent  implements OnInit {
 
   publicKey$: Observable<string | null>;
+  inProgress$: Observable<boolean>;
 
   constructor(private store: Store) { }
 
@@ -26,6 +28,7 @@ export class SettingsPhantomComponent  implements OnInit {
 
   initializeValues() {
     this.publicKey$ = this.store.pipe(select(publicKeySelector));
+    this.inProgress$ = this.store.pipe(select(inProgressSelector));
   }
 
 }

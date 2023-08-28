@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { signoutAction } from '../store/auth/actions/signout.action';
 import { SettingsService } from '../services/settings.service';
 
