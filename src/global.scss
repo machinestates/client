@@ -34,11 +34,13 @@
 
 .logo {
   font-family: 'CairoPlay', sans-serif;
-  font-size: 2em;
+  font-style: italic;
+  font-size: 1.5em;
 }
 
 ion-button {
-  box-shadow: 4.5px 4.5px 0 rgb(137, 127, 119)
+  box-shadow: 4.5px 4.5px 0 rgb(0, 0, 0);
+  font-size: 1.5em;
 }
 
 ion-button:active {

@@ -5,8 +5,8 @@ form {
 }
 
 .btn {
-  -webkit-box-shadow: 4.5px 4.5px 0 rgb(137, 127, 119);
-  box-shadow: 4.5px 4.5px 0 rgb(137, 127, 119);
+  -webkit-box-shadow: 4.5px 4.5px 0 rgb(0,0,0);
+  box-shadow: 4.5px 4.5px 0 rgb(0,0,0);
   border-radius: 0;
 }
 
@@ -25,13 +25,13 @@ fieldset[disabled] .btn {
 }
 
 .btn-buy {
-  background-color: #9a95ff;
-  color: #ebf1e2;
+  background-color: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
 }
 
 .btn-sell {
-  color: #ebf1e2;
-  background-color: #ff7c9f;
+  color: var(--ion-color-tertiary-contrast);
+  background-color: var(--ion-color-tertiary);
 }
 
 .btn-buy,
