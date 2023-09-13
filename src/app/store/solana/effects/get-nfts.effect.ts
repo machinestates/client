@@ -13,7 +13,7 @@ export class GetNftsEffect {
     getNfts$ = createEffect(() => this.actions$.pipe(
       ofType(getNftsAction),
       switchMap(async ({ wallet }) => {
-        await this.loadingService.present('Loading NFTs...');
+        await this.loadingService.present('Loading NFTs... Sorry, this can take awhile!');
         return { wallet };
       }),
       switchMap(({ wallet }) => {

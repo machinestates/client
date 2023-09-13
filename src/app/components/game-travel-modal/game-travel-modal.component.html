@@ -6,14 +6,16 @@
   </ion-header>
 
   <ion-content fullscreen>
-    <ion-card *ngFor="let exchange of exchanges">
+    <ng-container *ngFor="let exchange of exchanges">
       <div *ngIf="exchange.name !== currentExchange">
-        <ion-card-header>
-          <ion-card-subtitle *ngIf="exchange.name === 'PLASMANET'">Debt Service</ion-card-subtitle>
-          <ion-card-title (click)="travelToExchange(exchange)">{{ exchange.name }}</ion-card-title>
-        </ion-card-header>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle *ngIf="exchange.name === 'PLASMANET'">Debt Service</ion-card-subtitle>
+            <ion-card-title (click)="travelToExchange(exchange)">{{ exchange.name }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
       </div>
-      </ion-card>
+    </ng-container>
 
   </ion-content>
 

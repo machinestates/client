@@ -17,7 +17,8 @@ export class GameTravelModalComponent implements OnInit {
   @Input() currentExchange: string;
   @Input() gameUuid: string;
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   travelToExchange(exchange: GameExchangeInterface) {
     this.store.dispatch(travelAction({ exchange, uuid: this.gameUuid }));
