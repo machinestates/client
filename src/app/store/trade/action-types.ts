@@ -37,4 +37,8 @@ export enum ActionTypes {
 
   SET_AVATAR = '[Trade] Set Avatar',
   SET_PUBLIC_KEY = '[Trade] Set Public Key',
+
+  EXPLORE = '[Trade] Explore',
+  EXPLORE_SUCCESS = '[Trade] Explore Success',
+  EXPLORE_FAILURE = '[Trade] Explore Failure',
 }
