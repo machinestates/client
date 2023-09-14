@@ -13,6 +13,8 @@ import { GameActionsModule } from '../components/game-actions/game-actions.modul
 import { GameDebtModule } from '../components/game-debt/game-debt.module';
 import { GameStoryModalModule } from '../components/game-story-modal/game-story-modal.module';
 import { GameEndModalModule } from '../components/game-end-modal/game-end-modal.module';
+import { GameExploreModalComponent } from '../components/game-explore-modal/game-explore-modal.component';
+import { GameExploreModalModule } from '../components/game-explore-modal/game-explore-modal.module';
 
 @NgModule({
   imports: [
@@ -27,7 +29,8 @@ import { GameEndModalModule } from '../components/game-end-modal/game-end-modal.
     GameActionsModule,
     GameDebtModule,
     GameStoryModalModule,
-    GameEndModalModule
+    GameEndModalModule,
+    GameExploreModalModule
   ],
   declarations: [TradePage]
 })

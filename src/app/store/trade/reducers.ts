@@ -12,6 +12,7 @@ import { completeGameAction, completeGameFailureAction, completeGameSuccessActio
 import { useItemAction, useItemFailureAction, useItemSuccessAction } from "./actions/use-item.action";
 import { setAvatarAction } from "./actions/set-avatar.action";
 import { setPublicKeyAction } from "./actions/set-public-key.action";
+import { exploreAction, exploreFailureAction, exploreSuccessAction } from "./actions/explore.action";
 
 const initialState: TradeStateInterface = {
   isSubmitting: false,
@@ -153,6 +154,33 @@ const tradeReducer = createReducer(
   ),
   on(
     travelFailureAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      isLoading: false,
+      actionPending: false,
+      error: action.error
+    })
+  ),
+  on(
+    exploreAction,
+    (state): TradeStateInterface => ({
+      ...state,
+      isLoading: true,
+      actionPending: true,
+      error: null
+    })
+  ),
+  on(
+    exploreSuccessAction,
+    (state, action): TradeStateInterface => ({
+      ...state,
+      actionPending: false,
+      isLoading: false,
+      game: action.game
+    })
+  ),
+  on(
+    exploreFailureAction,
     (state, action): TradeStateInterface => ({
       ...state,
       isLoading: false,

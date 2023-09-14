@@ -30,6 +30,16 @@ export class GameService {
     )
   }
 
+  explore(uuid: string) {
+    const body = {
+      action: 'explore'
+    }
+    const url = environment.apiUrl + '/trade/' + uuid;
+    return this.http.put<GameResponseInterface>(url, body).pipe(
+      map(response => response.game)
+    )
+  }
+
   borrow(uuid: string, amount: number) {
     const body = {
       action: 'borrow',

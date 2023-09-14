@@ -9,7 +9,7 @@
       </ion-button>
     </ion-col>  
     <ion-col size="4">
-      <ion-button color="tertiary" expand="full">
+      <ion-button color="tertiary" expand="full" (click)="explore()" [disabled]="currentGame?.exchange.explored">
         EXPLORE
       </ion-button>
     </ion-col>

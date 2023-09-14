@@ -13,6 +13,7 @@ import { PayDebtEffect } from './effects/pay-debt.effect';
 import { BorrowEffect } from './effects/borrow.effect';
 import { CompleteGameEffect } from './effects/complete-game.effect';
 import { UseItemEffect } from './effects/use-item.effect';
+import { ExploreEffect } from './effects/explore.effect';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UseItemEffect } from './effects/use-item.effect';
       PayDebtEffect,
       BorrowEffect,
       CompleteGameEffect,
-      UseItemEffect
+      UseItemEffect,
+      ExploreEffect
     ]),
     StoreModule.forFeature('trade', reducers)
   ]

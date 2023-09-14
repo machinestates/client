@@ -9,6 +9,14 @@ export interface GameExchangeInterface {
   description: string;
   hasLoan: boolean;
   hasDanger: boolean;
+  explored: boolean | null;
+  found: {
+    coins: number | null;
+    items: number | null;
+    danger: boolean | null;
+    lossFromDanger: number | null;
+    description: string;
+  } | null;
   coins: GameCoinInterface[];
   lossFromDanger: number; 
 }

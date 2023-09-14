@@ -47,3 +47,8 @@ export const tradeStateSelector = createSelector(
   tradeFeatureSelector,
   (tradeState: TradeStateInterface) => tradeState
 );
+
+export const exploredSelector = createSelector(
+  tradeFeatureSelector,
+  (tradeState: TradeStateInterface) => tradeState.game.exchange.explored
+)

@@ -6,6 +6,9 @@ import { Store } from '@ngrx/store';
 import { travelAction } from 'src/app/store/trade/actions/travel.action';
 import { completeGameAction } from 'src/app/store/trade/actions/complete-game.action';
 import { GameInventoryModalComponent } from '../game-inventory-modal/game-inventory-modal.component';
+import { exploreAction } from 'src/app/store/trade/actions/explore.action';
+import { Observable } from 'rxjs';
+import { exploredSelector } from 'src/app/store/trade/selectors';
 
 @Component({
   selector: 'app-game-actions',
@@ -25,8 +28,15 @@ export class GameActionsComponent implements OnInit {
 
   ngOnInit() {}
 
+  initializeValues() {
+  }
+
   endRound() {
     this.store.dispatch(completeGameAction({ uuid: this.currentGame.uuid }));
+  }
+
+  async explore() {
+    this.store.dispatch(exploreAction({ uuid: this.currentGame.uuid }));
   }
 
   async openTravelModal() {
