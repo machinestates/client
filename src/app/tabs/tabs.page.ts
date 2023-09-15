@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
+  avatar: string = 'assets/icon/avatar.svg';
+  settings: string = 'assets/icon/settings.svg';
+  trade: string = 'assets/icon/trade.svg';
+  
   constructor() {}
 
 }
