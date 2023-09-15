@@ -23,8 +23,8 @@ export class GameExploreModalComponent  implements OnInit, AfterViewInit {
 
   initializeValues() {
     new Typed(this.content.nativeElement.querySelector('.typing'), {
-      strings: [this.found.description],
-      typeSpeed: 50
+      strings: [this.found.story],
+      typeSpeed: 20
     });
   }
 

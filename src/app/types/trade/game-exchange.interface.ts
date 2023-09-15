@@ -17,6 +17,7 @@ export interface GameExchangeInterface {
     danger: boolean | null;
     lossFromDanger: number | null;
     description: string;
+    story: string;
   } | null;
   coins: GameCoinInterface[];
   lossFromDanger: number; 
