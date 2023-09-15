@@ -8,9 +8,11 @@
   <ion-content class="ion-padding">
     <ion-grid>
       <ion-row>
-        <ion-col>
-          <p>{{ found.description }}</p>
-        </ion-col>
+        <div #wrapper style="min-height: 80px;">
+          <ion-col>
+            <p><span class="typing"></span></p>
+          </ion-col>
+        </div>
       </ion-row>
     </ion-grid>
   </ion-content>
