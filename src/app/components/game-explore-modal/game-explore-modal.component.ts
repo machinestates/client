@@ -12,7 +12,6 @@ export class GameExploreModalComponent  implements OnInit {
   constructor(private modalController: ModalController) { }
 
   ngOnInit() {
-    console.log(this.found);
   }
 
   close() {

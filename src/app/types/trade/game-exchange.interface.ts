@@ -11,6 +11,7 @@ export interface GameExchangeInterface {
   hasDanger: boolean;
   explored: boolean | null;
   found: {
+    type: string;
     coins: number | null;
     items: number | null;
     danger: boolean | null;

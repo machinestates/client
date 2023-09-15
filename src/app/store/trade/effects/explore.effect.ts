@@ -30,6 +30,7 @@ export class ExploreEffect {
             return exploreSuccessAction({ game })
           }),
           tap(async (state) => {
+            this.gameAlertService.explore(state.game);
             // Modal:
             const modal = await this.modalController.create({
               component: GameExploreModalComponent,

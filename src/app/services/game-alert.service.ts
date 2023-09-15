@@ -15,9 +15,20 @@ export class GameAlertService {
   constructor(private alertService: AlertService, private smartAudioService: SmartAudioService) { }
 
   public generateDanger(exchange) {
-    return `Oh no...^3000 You have been HACKED...^2000 by an unknown assailant.` +
+    return `You have been HACKED...` +
     `^2000 $${exchange.lossFromDanger} has been taken!`;
+  }
 
+  public async explore(currentGame): Promise<any> {
+    const type = _.get(currentGame, 'exchange.found.type');
+    const description = _.get(currentGame, 'exchange.found.description');
+
+    if (type === 'GOOD' || type === 'NEUTRAL') {
+      this.alertService.success([description], 55);
+    } else if (type === 'BAD') {
+      this.smartAudioService.play('borrow');
+      this.alertService.error([description], 55);
+    }
   }
 
   public async travel(currentGame): Promise<any> {
