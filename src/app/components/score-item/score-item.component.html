@@ -4,7 +4,7 @@
   </ion-thumbnail>
   <ion-label (click)="openProfile()">
     <h6>{{ score.handle }}</h6>
-    <p>${{ score.score }}</p>
+    <p>{{ score.score | currency:'USD':'symbol':'1.0-0' }}</p>
   </ion-label>
   <ion-icon name="reader-outline" slot="end" (click)="read()"></ion-icon>
 

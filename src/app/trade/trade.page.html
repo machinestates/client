@@ -29,7 +29,7 @@
 </ion-footer>
 
 <ion-footer *ngIf="!(inProgress$ | async)">
-  <ion-grid>
+  <ion-grid class="grid">
     <ion-row>
       <ion-col>
         <ion-button (click)="start()" expand="block">Start</ion-button>

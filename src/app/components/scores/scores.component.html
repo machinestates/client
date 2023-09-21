@@ -10,6 +10,9 @@
   <ion-segment-button value="alltime">
     <ion-label>All-Time</ion-label>
   </ion-segment-button>
+  <ion-segment-button value="earnings">
+    <ion-label>Earnings</ion-label>
+  </ion-segment-button>
 </ion-segment>
 
 <div [ngSwitch]="scoresType">
@@ -30,6 +33,16 @@
         <p>No scores yet.</p>
       </div>
       <app-score-item [score]="score" *ngFor="let score of scores.alltime"></app-score-item>
+    </ion-list>
+  </ng-container>
+
+  <!-- Earnings -->
+  <ng-container *ngSwitchCase="'earnings'">
+    <ion-list *ngIf="scores$ | async as scores">
+      <div class="ion-text-center" *ngIf="!scores.earnings.length">
+        <p>No earnings yet.</p>
+      </div>
+      <app-earnings-item [score]="score" *ngFor="let score of scores.earnings"></app-earnings-item>
     </ion-list>
   </ng-container>
 </div>
