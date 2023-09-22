@@ -19,4 +19,5 @@ export interface GameInterface {
   inventory: GameInventoryInterface;
   itemsUsed: GameItemInterface[];
   ghosted: boolean;
+  hasBurner: boolean;
 }
