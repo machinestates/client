@@ -19,7 +19,6 @@ export class GameEndModalComponent  implements OnInit {
   constructor(private modalController: ModalController) { }
 
   ngOnInit() {
-    console.log(this.coins);
   }
 
   close() {

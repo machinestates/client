@@ -11,6 +11,7 @@ import { AlertService } from "src/app/services/alert.service";
 import { LoadingService } from "src/app/services/loading.service";
 import { buyCoinAction, buyCoinFailureAction, buyCoinSuccessAction } from "../actions/buy-coin.action";
 import { payDebtAction, payDebtFailureAction, payDebtSuccessAction } from "../actions/pay-debt.action";
+import { SmartAudioService } from "src/app/services/smart-audio.service";
 
 
 @Injectable()
@@ -28,6 +29,7 @@ export class PayDebtEffect {
             return payDebtSuccessAction({ game })
           }),
           tap((state) => {
+            this.smartAudioService.play('sell');
             this.alertService.success([
               `You have paid $${amount} to PLASMADEBT.`,
               `Your debt is now $${state.game.inventory.debt}!`
@@ -49,6 +51,7 @@ export class PayDebtEffect {
     private actions$: Actions,
     private gameService: GameService,
     private alertService: AlertService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private smartAudioService: SmartAudioService
   ) {}
 }

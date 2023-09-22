@@ -31,8 +31,8 @@ export class UseItemEffect {
             return useItemSuccessAction({ game })
           }),
           tap((state) => {
-            // TODO: Add success message
-            this.alertService.success([`You have successfully used ${item.name.toUpperCase()}.`]);
+            // Success message
+            this.alertService.success([`You have successfully used ${item.name.toUpperCase()}.`, `${item.description}`]);
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             this.alertService.error([

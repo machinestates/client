@@ -24,6 +24,7 @@ export class GameAlertService {
     const description = _.get(currentGame, 'exchange.found.description');
 
     if (type === 'GOOD' || type === 'NEUTRAL') {
+      this.smartAudioService.play('sell');
       this.alertService.success([description], 55);
     } else if (type === 'BAD') {
       this.smartAudioService.play('borrow');
