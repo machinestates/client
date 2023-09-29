@@ -6,6 +6,8 @@
     <h6>{{ score.handle }}</h6>
     <p>{{ score.score | currency:'USD':'symbol':'1.0-0' }}</p>
   </ion-label>
+  <ion-icon name="copy-outline" slot="end" (click)="share()" style="margin-right: 10px;"></ion-icon>
+
   <ion-icon name="reader-outline" slot="end" (click)="read()"></ion-icon>
 
   <ion-icon class="player-buttons" name="stop" (click)="stop()" slot="end" *ngIf="playing"></ion-icon>

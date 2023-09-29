@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { Share } from '@capacitor/share';
+import { ModalController, ToastController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-game-story-modal',
@@ -10,8 +10,9 @@ import { Share } from '@capacitor/share';
 export class GameStoryModalComponent implements OnInit {
   @ViewChild('wrapper') private content;
   @Input() story: string;
+  @Input() uuid: string;
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private toastController: ToastController) { }
 
   ngOnInit() {
   }
@@ -23,10 +24,14 @@ export class GameStoryModalComponent implements OnInit {
   }
 
   async share() {
-    await Share.share({
-      title: 'Game Story',
-      text: this.story.replace(/<br\s*[\/]?>/gi, '\n')
+    navigator.clipboard.writeText(environment.shareUrl + '/' + this.uuid);
+    const toast = await this.toastController.create({
+      message: 'URL copied to clipboard',
+      duration: 3000,
+      position: 'bottom',
     });
+
+    await toast.present();
   }
 
 }

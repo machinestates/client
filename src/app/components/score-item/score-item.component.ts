@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { ScoreInterface } from 'src/app/types/trade/score.interface';
 import { GameStoryModalComponent } from '../game-story-modal/game-story-modal.component';
 import { ProfileModalComponent } from '../profile-modal/profile-modal.component';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class ScoreItemComponent implements OnInit {
   audio: any;
   playing = false;
 
-  constructor(private modalController: ModalController) {
+  constructor(private modalController: ModalController, private toastController: ToastController) {
   }
 
   ngOnInit() {
@@ -52,9 +53,21 @@ export class ScoreItemComponent implements OnInit {
     const modal = await this.modalController.create({
       component: GameStoryModalComponent,
       componentProps: {
-        story: this.score.story.replace(/\n/g, "<br />")
+        story: this.score.story.replace(/\n/g, "<br />"),
+        uuid: this.score.uuid
       }
     });
     await modal.present();
+  }
+
+  async share() {
+    navigator.clipboard.writeText(environment.shareUrl + '/' + this.score.uuid);
+    const toast = await this.toastController.create({
+      message: 'URL copied to clipboard',
+      duration: 3000,
+      position: 'bottom',
+    });
+
+    await toast.present();
   }
 }
